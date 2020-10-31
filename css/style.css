@@ -59,3 +59,27 @@
   color:white;
   background:#1c9941;
 }
+#header-wrapped {
+  border-bottom:1px solid #f5f5f0;
+}
+#home-page-wrapped #banner {
+  position:relative;
+  overflow-y: hidden;
+}
+#home-page-wrapped #banner .banner-layer{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+}
+#home-page-wrapped #banner .bottom-ribbon{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 240px;
+  transform: skewY(-3deg) translateY(56px);
+  background-color: rgba(255,164,2,0.2);
+  opacity: 0.5;
+}
