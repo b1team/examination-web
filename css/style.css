@@ -1,6 +1,5 @@
 ﻿*{
   font-size:14px;
-  color:#1c9941;
 }
 .clearfix {
   *zoom: 1;
@@ -9,4 +8,54 @@
   clear: both;
   content: '';
   display: table;
+}
+#header-wrapped .logo-wrapped img{
+  display:block;
+  height:120px;
+  margin-top:-10px;
+}
+#header-wrapped .btn-signUp button{
+  font-size:18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color:white;
+  background: #1c9941;
+  padding:10px 20px;
+  float:right;
+  margin-top:25px;
+  border:none;
+  border-radius: 20px;
+}
+#header-wrapped .btn-forTeacher button{
+  font-size:18px;
+  text-transform: capitalize;
+  columns: #333333;
+  background: white;
+  padding:10px 20px;
+  float:right;
+  margin-top:25px;
+  border:none;
+  border-radius: 20px;
+  font-weight: 500;
+}
+#header-wrapped .btn-forTeacher button:hover{
+  color:white;
+  background:#1c9941;
+}
+#header-wrapped .btn-forStudent button{
+  font-size:18px;
+  text-transform: capitalize;
+  columns: #333333;
+  background: white;
+  padding:10px 20px;
+  float:right;
+  margin-top:25px;
+  border:none;
+  border-radius: 20px;
+  outline:0;
+  font-weight: 500;
+}
+#header-wrapped .btn-forStudent button:hover{
+  color:white;
+  background:#1c9941;
 }
