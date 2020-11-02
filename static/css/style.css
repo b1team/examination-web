@@ -231,5 +231,26 @@
   top:120px;
   left:40px;
   z-index:1;
-  
+}
+#testimonial{
+  margin-top:70px;
+}
+#testimonial .testimonial-title {
+  font-size:32px;
+  font-weight:500;
+  max-width:808px;
+  text-align:center;
+  margin:0px auto;
+}
+#testimonial .testimonial-content, #testimonial .testimonial-company-title  {
+  font-size:14px;
+  font-weight:500;
+  max-width:808px;
+  text-align:center;
+  margin:30px auto;
+}
+#testimonial .testimonial-company-img img{
+  display:inline-block;
+  width:23%;
+  margin:0px auto;
 }
