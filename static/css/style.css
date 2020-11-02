@@ -193,3 +193,43 @@
   font-weight: 500;
   color: #5D2057;
 }
+#carousel-bannner .item{
+  position:relative;
+  display:block;
+  padding:10px 0px 100px 0px;
+}
+#carousel-bannner .item #border-comment {
+  border:solid 0px ;
+  border-radius:10%;
+  background-color:#F2F2F2;
+  width:260px;
+  height:120px;
+  margin:5px 125px 0px 125px;
+  padding:20px;
+}
+#carousel-bannner .item #border-comment p{
+  color:grey;
+  font-family:'Roboto';
+  text-align: center;
+  font-size:16px;
+  display:block;
+}
+#carousel-bannner .item h4{
+  margin: 5px 0px 5px 230px;
+  color:#43546e;
+  font-size:16px;
+  display:block;
+}
+#carousel-bannner .item #extend-p{
+  margin: 0px 0px 5px 260px;
+  font-size:14px;
+  color:grey;
+  display: block;
+}
+#carousel-bannner .item img{
+  position: absolute;
+  top:120px;
+  left:40px;
+  z-index:1;
+  
+}

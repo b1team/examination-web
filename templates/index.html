@@ -5,12 +5,12 @@
 	<meta charset="utf-8">
 	<meta name="description" content="my first web">
 	<meta name="author" content="AnhTuDev">
-	<title>WoodWorkBench</title>
+	<title>BeSmart</title>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="../static/css/style.css" rel="stylesheet">
 	<!--https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css-->
-	<link href="../css/owl.theme.default.min.css" rel="stylesheet">
-	<link href="../css/owl.carousel.min.css" rel="stylesheet">
+	<link href="../static/css/owl.theme.default.min.css" rel="stylesheet">
+	<link href="../static/css/owl.carousel.min.css" rel="stylesheet">
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -34,7 +34,7 @@
 			<div class="header-inner-desktop hidden-sm hidden-xs">
 				<div class="col-lg-4 col-md-4">
 					<div class="logo-wrapped">
-						<a href="index.html"><img src="../images/logo.png" alt="logo"></a>
+						<a href="index.html"><img src="../static/images/logo.png" alt="logo"></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4">
@@ -57,7 +57,7 @@
 			<div class="banner-layer">
 				<div class="bottom-ribbon"></div>
 			</div>
-			<div class="banner-content">
+			<div class="banner-content hidden-sm hidden-xs">
 				<h1 class="banner-title">Nền tảng miễn phí 100%</h1>
 				<h3 class="banner-description">Tìm và tạo bài giảng cũng như đăng các bài test cho học sinh nhanh chóng, hiệu quả.</h3>
 				<div class="banner-btn">
@@ -65,26 +65,79 @@
 					<button class="btn-login"><a href="#">Đăng nhập</a></button>
 				</div>
 				<div class="banner-image">
-					<img src="../images/banner.png" alt="banner-image">
+					<img src="../static/images/banner.png" alt="banner-image">
 				</div>
 				<div class="space" style="margin-top:90px;"></div>
 				<div class="banner-bottom-content">
 					<div class="global-art">
-						<img src="../images/global-art.svg" alt="global-art" style="height:64px;width:64px">
+						<img src="../static/images/global-art.svg" alt="global-art" style="height:64px;width:64px">
 					</div>
 					<div class="banner-bottom-text">Được tin dùng bởi hơn 50 triệu người trên thế giới.</div>
+				</div>
+			</div>
+		</section>
+		<section id="testimonial">
+			<div id="carousel-bannner" class="owl-threes owl-carousel owl-theme">
+				<div class="item">
+					<div id="border-comment">
+						<p>"Dịch vụ tư vấn của Suplo là một trong những dịch vụ rất hữu ích và sẽ hỗ trợ các doanh nghiệp cũng
+							như khách hàng"</p>
+					</div>
+					<h4>Chị Nguyễn Thị Thanh</h4>
+					<p id="extend-p">Ý Yên, Nam Định</p>
+					<img src="../static/images/girl4.jpg" style="width:165px; height:165px;">
+				</div>
+				<div class="item">
+					<div id="border-comment">
+						<p>Tôi đã từng sử dụng dịch vụ của Suplo và thấy rằng khả năng chuyên môn cao của họ</p>
+					</div>
+					<h4>Chị Hoàng Thu Phương</h4>
+					<p id="extend-p">Đông Hưng, Thái Bình</p>
+					<img src="../static/images/girl4.jpg" style="width:165px; height:165px;">
+				</div>
+				<div class="item">
+					<div id="border-comment">
+						<p>Suplo ngày càng có sự nhiệt huyết mạnh mẽ lan tỏa tới các đối tác. Tôi nghĩ Suplo đã làm được một
+							việc lớn.</p>
+					</div>
+					<h4>Chị Hoàng Thanh Loan</h4>
+					<p id="extend-p">Quảng Châu,Trung Quốc</p>
+					<img src="../static/images/girl4.jpg" style="width:165px; height:165px;">
+				</div>
+				<div class="item">
+					<div id="border-comment">
+						<p>Các thiết bị của Suplo cũng như nhân viên đều hoạt bát, nhanh nhạy.Vô cùng hài lòng với dịch vụ.</p>
+					</div>
+					<h4>Anh Đinh Mạnh Ninh</h4>
+					<p id="extend-p">Cao Bằng, Bắc Giang</p>
+					<img src="../static/images/girl4.jpg" style="width:165px; height:165px;">
 				</div>
 			</div>
 		</section>
 	</div>
 	<!--End main code-->
 	<!--Script-->
-	<script src="../javascript/script.js"></script>
+	<script src="../static/javascript/script.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<!--end script-->
+	<script type="text/javascript">
+		$('.owl-threes').owlCarousel({
+			loop: true,
+			nav: false,
+			autoplay: true,
+			responsive: {
+				0: {
+					items: 1
+				},
+				900: {
+					item: 3
+				}
+			}
+		})
+	</script>
+	<!--endscript-->
 </body>
 
 </html>
