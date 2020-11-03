@@ -264,3 +264,33 @@
   width:100%;
   margin:0px auto;
 }
+#tab-wrapped{
+  padding:90px;
+}
+.tablink {
+  background-color: #fff;
+  color: #333;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33.33%;
+}
+
+.tablink:hover {
+  font-weight:700;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: #333;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+#tab-wrapped .active,.tablink:hover{
+  background-color: #333 !important;
+  color:white;
+}
