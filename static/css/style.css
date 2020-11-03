@@ -260,6 +260,24 @@
   background-color:#FFFAF2;
   padding:80px 90px 48px;
 }
+#product-wrapped .product-content{
+  font-size:18px;
+  margin:10px 0px;
+  display:block;
+  text-align:center;
+  color:#333;
+}
+#product-wrapped .btn-try {
+  padding:10px 20px;
+  background: #461A42;
+  color:white;
+  margin:10px 15px;
+  border:2px solid #461A42;
+  outline:none;
+  line-height:100%;
+  border-radius: 18px;
+  font-size:20px;
+}
 #product-wrapped .product-demo-video>video {
   width:100%;
   margin:0px auto;
@@ -275,7 +293,7 @@
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
-  font-size: 17px;
+  font-size: 18px;
   width: 33.33%;
 }
 
@@ -291,6 +309,96 @@
   height: 100%;
 }
 #tab-wrapped .active,.tablink:hover{
-  background-color: #333 !important;
+  border-bottom:2px solid #461A42;
+}
+#tab-wrapped .tabcontent img{
+  max-width:100%;
+  display:block;
+}
+#tab-wrapped .tabcontent ol{
+  margin-top:20px;
+}
+#tab-wrapped .tabcontent ol li{
+  font-size:18px;
+  line-height:25px;
+  color:#461A42;
+}
+#learn-more-wrapped {
+  background-color:#461A42;
+  max-width:100%;
+  padding:80px 0px;
+}
+#learn-more-wrapped img{
+  max-width:100%;
+  display:block;
+}
+#learn-more-wrapped .learn-more-boxLeft {
+  background-color: #FFFAF2;
+  box-shadow: 0px 4px 0px #FFA402, 0px 8px 16px rgba(0,0,0,0.25);
+  border-radius:20px;
+  text-align:center;
+  padding:10px 50px;
+}
+#learn-more-wrapped h2,#learn-more-wrapped p{
+  margin:10px 0px;
+}
+#learn-more-wrapped .learn-more-boxLeft  button{
+  padding:10px 20px;
+  background:  #FFA402;
+  margin:10px 15px;
+  border:2px solid #FFA402;
+  outline:none;
+  border-radius: 18px;
+}
+#learn-more-wrapped .learn-more-boxLeft  button a{
+  text-decoration: none;
   color:white;
+  font-size:20px;
+  line-height:100%;
+}
+#learn-more-wrapped .learn-more-boxRight{
+  background-color: #EDE6F6;
+  box-shadow: 0px 4px 0px #8854C0, 0px 8px 16px rgba(0,0,0,0.25);
+  border-radius:20px;
+  padding:10px 50px;
+  text-align:center;
+}
+#learn-more-wrapped .learn-more-boxRight  button{
+  padding:10px 20px;
+  background:   #8854C0;
+  margin:10px 15px;
+  border:2px solid  #8854C0;
+  outline:none;
+  border-radius: 18px;
+}
+#learn-more-wrapped .learn-more-boxRight  button a{
+  text-decoration: none;
+  color:white;
+  font-size:20px;
+  line-height:100%;
+}
+#footer-wrapped {
+  background-color:#461A42;
+  padding:20px 0px;
+}
+#footer-wrapped ul li a{
+  font-size:14px;
+  text-decoration: none;
+  display:block;
+  color:#fff;
+  margin:10px 0px;
+}
+#get-started-footer{
+  background-color: #FFFAF2;
+  padding:10px 0px;
+}
+#get-started-footer img{
+  max-width:100%;
+  height:320px;
+}
+.get-started-title {
+  margin:50px 0px; 
+  text-align:center;
+  font-size:36px;
+  color:#333;
 }
