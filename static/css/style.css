@@ -251,6 +251,16 @@
 }
 #testimonial .testimonial-company-img img{
   display:inline-block;
-  width:23%;
+  width:24%;
+  margin:0px auto;
+}
+#product-wrapped {
+  max-width:100%;
+  text-align:center;
+  background-color:#FFFAF2;
+  padding:80px 90px 48px;
+}
+#product-wrapped .product-demo-video>video {
+  width:100%;
   margin:0px auto;
 }
