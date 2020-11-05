@@ -1,0 +1,111 @@
+*{
+    font-size:14px;
+  }
+  .clearfix {
+    *zoom: 1;
+  }
+  .clearfix:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  #header-wrapped .logo-wrapped img{
+    display:block;
+    height:120px;
+    margin-top:-10px;
+  }
+  #header-wrapped .btn-signUp button{
+    background: #461A42;
+    padding:10px 20px;
+    float:right;
+    margin-top:25px;
+    border:none;
+    border-radius: 20px;
+  }
+  #header-wrapped .btn-signUp button a{
+    text-decoration: none;
+    font-size:18px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color:white;
+  }
+  #header-wrapped .btn-forTeacher button{
+    background: white;
+    padding:10px 20px;
+    float:right;
+    margin-top:25px;
+    border:none;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  #header-wrapped .btn-forTeacher button a{
+    text-decoration: none;
+    font-size:18px;
+    text-transform: capitalize;
+    color: #333333;
+  }
+  #header-wrapped .btn-forTeacher button:hover{
+    background:#461A42;
+  }
+  #header-wrapped .btn-forTeacher button:hover a{
+    color:#fff !important;
+  }
+  #header-wrapped .btn-forStudent button{
+    background: white;
+    padding:10px 20px;
+    float:right;
+    margin-top:25px;
+    border:none;
+    border-radius: 20px;
+    outline:0;
+    font-weight: 500;
+  }
+  #header-wrapped .btn-forStudent button a{
+    font-size:18px;
+    text-transform: capitalize;
+    color: #333333;
+    text-decoration:none;
+  }
+  #header-wrapped .btn-forStudent button:hover{
+    background:#461A42;
+  }
+  #header-wrapped .btn-forStudent button:hover a{
+    color:#fff;
+  }
+  #header-wrapped {
+    border-bottom:1px solid #f5f5f0;
+  }
+#form-login-wrapped{
+    min-height:82.3vh;
+    max-width:100%;
+    background-color:#461A42;
+}
+#form-login-wrapped .form-login{
+    color:#333;
+    background-color:#EDE6F6;
+    margin:80px 0px;
+    border-radius: 20px;
+    padding:25px 15px;
+}
+input{
+    width:250px;
+    display:inline-block;
+    border-radius: 20px;
+    height:35px;
+    border:#fff;
+}
+label{
+    margin:20px 0px;
+}
+.btn-submit{
+padding:10px 20px;
+  background: #461A42;
+  color:white;
+  margin:10px 15px;
+  border:2px solid #461A42;
+  outline:none;
+  line-height:100%;
+  border-radius: 18px;
+  font-size:14px;
+  margin:0px auto;
+}
