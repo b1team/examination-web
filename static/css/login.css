@@ -75,37 +75,85 @@
   #header-wrapped {
     border-bottom:1px solid #f5f5f0;
   }
-#form-login-wrapped{
-    min-height:82.3vh;
-    max-width:100%;
+  #form-login-wrapped{
     background-color:#461A42;
-}
-#form-login-wrapped .form-login{
-    color:#333;
-    background-color:#EDE6F6;
-    margin:80px 0px;
-    border-radius: 20px;
-    padding:25px 15px;
-}
-input{
-    width:250px;
-    display:inline-block;
-    border-radius: 20px;
-    height:35px;
-    border:#fff;
-}
-label{
-    margin:20px 0px;
-}
-.btn-submit{
-padding:10px 20px;
-  background: #461A42;
-  color:white;
-  margin:10px 15px;
-  border:2px solid #461A42;
-  outline:none;
-  line-height:100%;
-  border-radius: 18px;
-  font-size:14px;
-  margin:0px auto;
-}
+    height:82.3vh;
+  }
+  #login-wrapped {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+      padding:10px 30px;
+      margin-top:80px;
+  }
+    
+    #login-wrapped h2 {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+    
+    #login-wrapped .form {
+      padding: 30px 40px;
+    }
+    
+    .form-Control {
+      margin-bottom: 10px;
+      padding-bottom: 20px;
+      position: relative;
+      border: none;
+    }
+    
+    .form-Control label {
+      color: #777;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-Control input {
+      border: 2px solid #f0f0f0;
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+  
+    }
+    
+    .form-Control input:focus {
+      outline: 0;
+      border-color: #777;
+    }
+    
+    .form-Control.success input {
+      border-color: var(--success-color);
+    }
+    
+    .form-Control.error input {
+      border-color: var(--error-color);
+    }
+    
+    .form-Control small {
+      color: var(--error-color);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      visibility: hidden;
+    }
+    
+    .form-Control.error small {
+      visibility: visible;
+    }
+    
+    #login-wrapped form button {
+      cursor: pointer;
+      background-color: #461A42;
+      border: 2px solid #461A42;
+      border-radius: 4px;
+      color: #fff;
+      display: block;
+      font-size: 16px;
+      padding: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
