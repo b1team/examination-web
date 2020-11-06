@@ -7,7 +7,7 @@
 	<meta name="author" content="AnhTuDev">
 	<title>BeSmart</title>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="../static/css/register.css" rel="stylesheet">
+	<link href="../static/css/login.css" rel="stylesheet">
 	<!--https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css-->
 	<link href="../static/css/owl.theme.default.min.css" rel="stylesheet">
 	<link href="../static/css/owl.carousel.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-lg-8 col-md-8">
 					<div class="btn-signUp">
-						<button><a href="#">đăng nhập</a></button>
+						<button><a href="#">đăng ký</a></button>
 					</div>
 				</div>
 			</div>
@@ -46,43 +46,27 @@
 			</div>
 		</div>
     </section>
-    <section id="form-wrapped">
+    <section id="form-login-wrapped">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="form-register">
-                        <form action="" method="post">
-                            <h2 style="text-align: center;">Register</h2>
-                            
-                            <label for="username"><b>Tên: </b></label>
-                            <input type="text" placeholder="Enter Username" name="username" required><br>
-                        
-                            <label for="psw"><b>Password: </b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-                            
-                            <label for="email"><b>Email: </b></label>
-                            <input type="text" placeholder="Enter Password" name="email" required>
-
-                            <label for="phone"><b>Phone: </b></label>
-                            <input type="tel" placeholder="Enter Password" name="phone" required>
-
-                            <label for="age">Tuổi: </label>
-                            <input type="number" id="quantity" name="age" min="5" max="100"><br>
-
-                            <label for="sex">Giới tính: </label>
-                            <input type="radio" name="sex" value="male" style="height: 20px;width:20px;"> Trai
-                            
-                            <input type="radio" name="sex" value="female" style="height: 20px;width:20px;margin-left:20px;"> Gái<br>
-
-                            <label for="classify">Phân loại: </label>
-                            <input type="radio" name="classify" value="student" style="height: 20px;width:20px;"> Học sinh
-                            
-                            <input type="radio" name="classify" value="teacher" style="height: 20px;width:20px;margin-left:20px;"> Giảng viên
-                            <br>
-                            <button type="submit" class="btn-submit">Đăng ký</button>
-                      </form>
-                    </div>
+					<div id="login-wrapped" >
+						<form id="form-login" class="form-login" method="POST">
+						  <h2>Login Form</h2>
+						  <div class="form-Control">
+							<label for="username">Username</label>
+							<input type="text" id="username" placeholder="Enter username" />
+							<small>Error message</small>
+						  </div>
+						  <div class="form-Control">
+							<label for="password">Password</label>
+							<input type="password" id="password" placeholder="Enter password" />
+							<small>Error message</small>
+						  </div>
+						  <button type="submit" onclick="send()">Submit</button>
+						</form>
+					  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
             </div>
