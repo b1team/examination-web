@@ -1,4 +1,3 @@
-
 // validate register 
 const form = document.getElementById('form-register');
 const usernameField = document.getElementById('username');
