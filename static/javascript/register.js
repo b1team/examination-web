@@ -82,7 +82,10 @@ function checkEmail(input){
         showSuccess(input);
     }
     else{
-        showError(input);
+      showError(
+        input,
+        `${getFieldName(input)} must be wrong email`
+      );
     }
 }
 // Event listeners
