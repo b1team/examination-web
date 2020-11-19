@@ -1,7 +1,9 @@
 # EXAMINATION WEB
 
 # BUILD
-pip install -r requirements.txt
+ - python3 -m venv venv
+
+ - pip install -r requirements.txt
 
 # START
 python3 run.py
