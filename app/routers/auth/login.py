@@ -25,5 +25,7 @@ def login():
     if user and check_password_hash(
         user["password"], user_info.get("password")
     ):
-        return "ok"
-    return "not"
+        if user['classify'] == 'student':
+            return 'stdent'
+        return 'teacher'
+    return "alert wrong username or password"
