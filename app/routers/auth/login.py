@@ -5,6 +5,7 @@ from app.routers.auth import (
     url_for,
     redirect,
     session,
+    flash,
     check_password_hash,
     User,
 )
@@ -12,9 +13,8 @@ from app.routers.auth import (
 
 @auth.route("/login", methods=["GET"])
 def login_form():
-    if "user" in session:
-        # TODO redirect to ...
-        return "you was logged"
+    if 'user' in session:
+        return redirect(url_for(f'user.{session["user"].get("classify")}_form'))
     return render_template("login.html")
 
 
@@ -22,10 +22,15 @@ def login_form():
 def login():
     user_info = request.form.to_dict()
     user = User.objects(username=user_info.get("username")).first()
+
     if user and check_password_hash(
-        user["password"], user_info.get("password")
+        user.password, user_info.get("password")
     ):
-        if user['classify'] == 'student':
-            return 'stdent'
-        return 'teacher'
-    return "alert wrong username or password"
+        session['user'] = {
+            'username': user.username,
+            'classify': user.classify
+        }
+        return redirect(url_for(f'user.{user.classify}_form'))
+
+    flash("username or password is incorrect")
+    return redirect(request.url)
