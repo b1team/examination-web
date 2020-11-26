@@ -18,4 +18,5 @@ def register_form():
 @auth.route('/register', methods=["POST"])
 def register():
     user_info = request.form.to_dict()
+    print(user_info)
     return 'OK'
