@@ -56,7 +56,7 @@
 						  <h2>Register Form</h2>
 						  <div class="form-Control">
 							<label for="username">Username</label>
-							<input type="text" id="username" placeholder="Enter username" />
+							<input type="text" id="username" name="username" onchange="return trim(this)" placeholder="Enter username" />
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
@@ -78,19 +78,6 @@
 							  type="text"
 							  id="email"
 							  placeholder="Enter email"/>
-							<small>Error message</small>
-						  </div>
-						  <div class="form-Control">
-							<label for="phone">Phone number</label>
-							<input
-							  type="tel"
-							  id="phone"
-							  placeholder="Enter phone"/>
-							<small>Error message</small>
-						  </div>
-						  <div class="form-Control">
-							<label for="age">Age</label>
-							<input type="tel" id="age" name="age" min="5" max="100" placeholder="Enter phone again">
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
