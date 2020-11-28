@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-lg-8 col-md-8">
 					<div class="btn-signUp">
-						<button><a href="#">đăng ký</a></button>
+						<button><a href="/register">đăng ký</a></button>
 					</div>
 				</div>
 			</div>
@@ -52,7 +52,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div id="login-wrapped" >
-						<form id="form-login" class="form-login" method="POST">
+						<form id="form-login" class="form-login" action="/login" method="POST">
 						  <h2>Login Form</h2>
 						  <div class="form-Control">
 							<label for="username">Username</label>
@@ -61,10 +61,10 @@
 						  </div>
 						  <div class="form-Control">
 							<label for="password">Password</label>
-							<input type="password" id="password" placeholder="Enter password" />
+							<input name="password" type="password" id="password" placeholder="Enter password" />
 							<small>Error message</small>
 						  </div>
-						  <button type="submit" onclick="send()">Submit</button>
+						  <button type="submit">Submit</button>
 						</form>
 					  </div>
                 </div>

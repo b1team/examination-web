@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-lg-8 col-md-8">
 					<div class="btn-signUp">
-						<button><a href="#">đăng nhập</a></button>
+						<button><a href="/login">đăng nhập</a></button>
 					</div>
 				</div>
 			</div>
@@ -52,7 +52,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div id="register-wrapped" >
-						<form id="form-register" class="form-register" method="POST">
+						<form id="formRegister" class="form-register" action="/register" method="POST">
 						  <h2>Register Form</h2>
 						  <div class="form-Control">
 							<label for="username">Username</label>
@@ -61,7 +61,7 @@
 						  </div>
 						  <div class="form-Control">
 							<label for="password">Password</label>
-							<input type="password" id="password" placeholder="Enter password" />
+							<input type="password" id="password" name="password" placeholder="Enter password" />
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
@@ -75,15 +75,16 @@
 						  <div class="form-Control">
 							<label for="email">Email</label>
 							<input
+							  name="email"
 							  type="text"
 							  id="email"
 							  placeholder="Enter email"/>
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
-							<label for="sex">Sex</label>
-							<input type="radio" id="sex" name="sex" value="male" style="height: 20px;width:20px;display:inline-block;"> Trai
-                            <input type="radio" id="sex" name="sex" value="female" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Gái<br>
+							<label for="sex">Gender</label>
+							<input type="radio" id="sex" name="sex" value="male" style="height: 20px;width:20px;display:inline-block;"> Nam
+                            <input type="radio" id="sex" name="sex" value="female" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Nữ<br>
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
@@ -92,7 +93,7 @@
                             <input type="radio" id="classify" name="classify" value="teacher" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Giảng viên
 							<small>Error message</small>
 						  </div>
-						  <button type="submit" onclick="send()">Submit</button>
+						  <button type="submit">Submit</button>
 						</form>
 					  </div>
                 </div>
