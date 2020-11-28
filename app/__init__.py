@@ -12,6 +12,9 @@ def create_app():
     app.config.from_pyfile("settings.py")
 
     initialize_db(app)
+    app.register_blueprint(home.bp)
+    app.register_blueprint(login.auth)
+    app.register_blueprint(register.auth)
 
     app.register_blueprint(home.bp)
 
