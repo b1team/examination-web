@@ -34,3 +34,9 @@ def login():
 
     flash("username or password is incorrect")
     return redirect(request.url)
+
+
+@auth.route("/logout")
+def logout():
+    session.pop('user')
+    return redirect(url_for('home.home'))

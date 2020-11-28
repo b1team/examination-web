@@ -1,85 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <link rel="stylesheet" href="../static/css/teacher.css">
-  <link rel="stylesheet" href="../static/css/popup.css">
-  <title>Teacher BeSmart</title>
-</head>
-<body>
-	<!--Phần này code chung -->
-	<header class="cd-main-header js-cd-main-header" style="background-color: #461A42;">
-		<div class="cd-logo-wrapper">
-		  <a href="#0" class="cd-logo"><img src="../static/images/logo1.png" style="height:120px; width:120px;" alt="Logo"></a>
-		</div>
-		
-		<div class="cd-search js-cd-search">
-		  <form>
-			<input class="reset" type="search" placeholder="Search...">
-		  </form>
-		</div>
-	  
-		<button class="reset cd-nav-trigger js-cd-nav-trigger" aria-label="Toggle menu"><span></span></button>
-	  
-		<ul class="cd-nav__list js-cd-nav__list" >
-		  <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
-			<a href="#0">
-			  <img src="../static/images/cd-avatar.svg" alt="avatar">
-			  <span>Tài khoản</span>
-			</a>
-		
-			<ul class="cd-nav__sub-list" style="background-color: #461A42;">
-			  <li class="cd-nav__sub-item"><a href="#0">Tài khoản của tôi</a></li>
-			  <li class="cd-nav__sub-item"><a href="#0">Thay đổi thông tin</a></li>
-			  <li class="cd-nav__sub-item"><a href="#0">Đăng xuất</a></li>
-			</ul>
-		  </li>
-		</ul>
-	  </header> <!-- .cd-main-header -->
-	  
-	  <main class="cd-main-content">
-		<nav class="cd-side-nav js-cd-side-nav" style="background-color: #461A42;">
-		  <ul class="cd-side__list js-cd-side__list">
-			<li class="cd-side__label"><span>Main</span></li>
-			<li class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children cd-side__item--selected">
-			  <a href="#0">Người dùng</a>
-			  
-			  <ul class="cd-side__sub-list" style="background-color: #461A42;">
-				<li class="cd-side__sub-item"><a href="#0">Thông tin cá nhân</a></li>
-				<li class="cd-side__sub-item"><a href="#0">Thay đổi thông tin cá nhân</a></li>
-			  </ul>
-			</li>
-		  </ul>
-		
-		  <ul class="cd-side__list js-cd-side__list" >
-			<li class="cd-side__label"><span>Secondary</span></li>
-			<li class="cd-side__item cd-side__item--has-children cd-side__item--images js-cd-item--has-children">
-			  <a href="#0">Ảnh</a>
-			  
-			  <ul class="cd-side__sub-list" style="background-color: #461A42;">
-				<li class="cd-side__sub-item"><a href="#0">Ảnh cá nhân</a></li>
-				<li class="cd-side__sub-item"><a href="#0">Chỉnh ảnh cá nhân</a></li>
-			  </ul>
-			</li>
-		  </ul>
-		
+{% extends "user.html" %}
+{% block title %} Teacher BeSmart {% endblock %}
+{% block teacher_ul %}
 		  <ul class="cd-side__list js-cd-side__list">
 			<li class="cd-side__label"><span>Hành động</span></li>
-			<li class="cd-side__btn"><button class="reset"><a href="room.html" target="blank" style="text-decoration:none;color:white">Tạo lớp</a></button></li>
+			<li class="cd-side__btn"><button class="reset"><a href="/room" target="blank" style="text-decoration:none;color:white">Tạo lớp</a></button></li>
 		  </ul>
+{% endblock %}
 		</nav>
-		<!--Phần riêng mỗi form-->
+{% block teacher %}
 		<div class="cd-content-wrapper">
 		  <div class="text-component text-center">
-			<h2>Chào mừng SESSION_USERNAME tới dịch vụ của chúng tôi</h2>
+			<h2>Chào mừng {{username}} tới dịch vụ của chúng tôi</h2>
 			<div class="getAllRoom"></div> Div này lấy tất cả các khóa học đã đăng</div>
 		  </div>
-		</div> <!-- kết thúc phần riêng -->
-	  </main> <!-- phần chung -->
-  <script src="../static/javascript/util.js"></script> <!-- util functions included in the CodyHouse framework -->
-  <script src="../static/javascript/teacher-aim.js"></script>
-  <script src="../static/javascript/main-teacher.js"></script>
-</body>
-</html>
+		</div>
+{% endblock %}
