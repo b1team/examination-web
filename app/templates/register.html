@@ -32,7 +32,7 @@
 			<div class="header-inner-desktop hidden-sm hidden-xs">
 				<div class="col-lg-4 col-md-4">
 					<div class="logo-wrapped">
-						<a href="index.html"><img src="../static/images/logo.png" alt="logo"></a>
+						<a href="/"><img src="../static/images/logo.png" alt="logo"></a>
 					</div>
 				</div>
 				<div class="col-lg-8 col-md-8">
@@ -96,6 +96,16 @@
 						  <button type="submit">Submit</button>
 						</form>
 					  </div>
+					  {% with messages = get_flashed_messages() %}
+					  {% if messages %}
+						  {% for message in messages %}
+						  <script>
+							  var message = "{{ message | safe }}";
+							  alert(message)
+							  </script>
+						  {% endfor %}
+					  {% endif %}
+				  {% endwith %}
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
             </div>

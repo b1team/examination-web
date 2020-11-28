@@ -4,6 +4,8 @@ from app.routers.auth import (
     request,
     url_for,
     redirect,
+    session,
+    flash,
     generate_password_hash,
     User,
 )
@@ -11,15 +13,17 @@ from app.routers.auth import (
 
 @auth.route('/register', methods=["GET"])
 def register_form():
+    if 'user' in session:
+        return redirect(url_for(f'user.{session["user"].get("classify")}_form'))
     return render_template('register.html')
 
 
 @auth.route('/register', methods=["POST"])
 def register():
     user_info = request.form.to_dict()
-    user = User.objects(email=user_info.get("email"),
-                        username=user_info.get('username')).first()
-    if not user:
+    existing_user = User.objects(email=user_info.get('email')).first()
+
+    if existing_user is None:
         password = generate_password_hash(user_info.get('password'))
         user = User(
             username=user_info.get('username'),
@@ -30,4 +34,6 @@ def register():
         )
         user.save()
         return redirect(url_for('auth.login'))
-    return 'alert existing'
+
+    flash('User already exists')
+    return redirect(request.url)
