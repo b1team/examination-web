@@ -2,8 +2,7 @@ from flask import Flask
 from app.db.database import initialize_db
 from app.routers.auth import login, register
 from app.routers import home
-
-from app.routers.user import student, teacher
+from app.routers.user import student, teacher, room, user_form
 
 
 def create_app():
@@ -21,7 +20,9 @@ def create_app():
     app.register_blueprint(login.auth)
     app.register_blueprint(register.auth)
 
+    app.register_blueprint(user_form.user)
     app.register_blueprint(student.user)
     app.register_blueprint(teacher.user)
+    app.register_blueprint(room.user)
 
     return app

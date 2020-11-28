@@ -1,5 +1,6 @@
-from app.routers.user import user, render_template
+from app.routers.user import user
 
-@user.route('/student', methods=["GET"])
-def student_form():
-    return render_template('student.html')
+
+@user.route("/student", methods=["POST"])
+def student():
+    pass

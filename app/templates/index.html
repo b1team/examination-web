@@ -38,12 +38,18 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4">
-					<div class="btn-forTeacher"><button><a href="#">Giảng viên</a></button></div>
-					<div class="btn-forStudent"><button><a href="#">Học sinh</a></button></div>
+					{% if session is none %}
+					<div class="btn-forTeacher"><button><a href="/teacher">Giảng viên</a></button></div>
+					<div class="btn-forStudent"><button><a href="/student">Học sinh</a></button></div>
+					{% endif %}
 				</div>
 				<div class="col-lg-4 col-md-4">
 					<div class="btn-signUp">
+						{% if session is none %}
 						<button><a href="/register">đăng ký</a></button>
+						{% else %}
+						<button><a href="/logout">Đăng xuất</a></button>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -61,8 +67,11 @@
 				<h1 class="banner-title">Nền tảng miễn phí 100%</h1>
 				<h3 class="banner-description">Tìm và tạo bài giảng cũng như đăng các bài test cho học sinh nhanh chóng, hiệu quả.</h3>
 				<div class="banner-btn">
-					<button class="btn-getstart"><a href="#">Bắt đầu</a></button>
+					{% if session is none %}
 					<button class="btn-login"><a href="/login">Đăng nhập</a></button>
+					{% else %}
+					<button class="btn-getstart"><a href="/start">Bắt đầu</a></button>
+					{% endif %}
 				</div>
 				<div class="banner-image">
 					<img src="../static/images/banner.png" alt="banner-image">

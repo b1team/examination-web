@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="my first web">
+	<meta name="author" content="AnhTuDev">
+	<title>BeSmart</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	{% block style %}{% endblock %}
+	<!--https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css-->
+	<link href="../static/css/owl.theme.default.min.css" rel="stylesheet">
+	<link href="../static/css/owl.carousel.min.css" rel="stylesheet">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+		integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+		crossorigin="anonymous">
+
+</head>
+<body>
+    <section id="header-wrapped">
+		<div class="container">
+			<div class="header-inner-desktop hidden-sm hidden-xs">
+				<div class="col-lg-4 col-md-4">
+					<div class="logo-wrapped">
+						<a href="/"><img src="../static/images/logo.png" alt="logo"></a>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-8">
+					<div class="btn-signUp">
+						{% block auth %}{% endblock %}
+					</div>
+				</div>
+			</div>
+			<div class="header-inner-mobile hidden-lg hidden-md">
+				
+			</div>
+		</div>
+	</section>
+	<!---d-->
+    {% block login %}{% endblock %}
+    {% block register %}{% endblock %}
+    
+<!--Script-->
+	{% block script %}{% endblock %}
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
