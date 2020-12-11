@@ -1,22 +1,86 @@
-{% extends "user.html" %}
-{% block title %} Room BeSmart {% endblock %}
-{% block room %}  
-	   <!--Phần riêng mỗi form-->
-		<div class="cd-content-wrapper">
-		  <div class="text-component text-center">
-            <div class="codeRoom">Div nay trả lại random code's room</div>
-			<form class="box" method="post" action="">
-				<div class="form-group files">
-					<label>Upload Your File </label>
-					<input type="file" class="form-control" multiple="">
-				  </div>
-			</form>
-			<div class="exampleWord" style="margin-top:30px;">
-				<a href="../static/images/banner.png" download>
-					<img src="../static/images/word-icon.png" alt="word-icon" width="100" height="120">
-				</a>
-				Example format for testing
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	<link rel="stylesheet" href="../static/css/grid.css">
+	<link rel="stylesheet" href="../static/css/room.css">
+	<link rel="stylesheet" href="../static/css/popup.css">
+	<title>Classrooms</title>
+	
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="header-desktop hidden-xs hidden-sm">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="logo-wrapper">
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png" style="height:100px; width:120px;display:block;"
+							alt="Logo"></a>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a href="#0">
+									<img src="../static/images/cd-avatar.svg" alt="avatar" style="height:24px;width:24px;border-radius:50%;">
+									<span>Tài khoản</span>
+								</a>
+							</button>
+							<div class="dropdown-content">
+								<a href="#0">Tài khoản của tôi</a>
+								<a href="#0">Thay đổi thông tin</a>
+								<a href="/logout">Đăng xuất</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
-		</div> <!-- kết thúc phần riêng -->
-{% endblock %}
+			<div class="header-mobile hidden-lg hidden-md">
+				<div class="row"></div>
+			</div>
+		</div>
+	</header>
+	<section id="room-wrapped">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-md-0 col-xs-0">
+				
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+					<div class="room-component-wrapped">
+						<div class="room-title">
+								<div class="room-classname">classname</div>
+								<div class="room-subject">subject</div>
+								<div class="room-teachername">teacher</div>
+							</div>
+						<div class="room-content">
+							<form class="box" method="post" action="">
+								<div class="form-group files">
+									<label>Upload Your File </label>
+									<input type="file" class="form-control" multiple="">
+								</div>
+							</form>
+							<div class="exampleWord" style="margin-top:30px;">
+								<a href="../static/images/banner.png" download>
+									<img src="../static/images/word-icon.png" alt="word-icon" width="100" height="120">
+								</a>
+								<p style="display:block;">Example format for testing</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-md-0 col-xs-0">
+				
+				</div>
+			</row>
+		</div>
+	</section>
+	<script src='../static/javascript/callback.js'></script>
+</body>
+
+</html>

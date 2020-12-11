@@ -1,0 +1,101 @@
+*{
+    font-size:14px;
+    margin:0px;
+    padding:0px;
+}
+header {
+    background:#461A42;
+    height:90px;
+}
+.dropbtn {
+  background-color: #461A42;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+}
+.dropbtn span{
+    font-size:18px !important;
+    margin-top:-5px;
+    display:inline-block;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float:right;
+  margin-top:25px;
+  text-decoration:none;
+  color:white;
+}
+.dropbtn img{
+    display:inline-block;
+}
+a{text-decoration:none;color:white;}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #461A42;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  color:white;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size:18px !important;
+}
+
+.dropdown-content a:hover {color:lightblue}
+
+.dropdown:hover .dropdown-content a{   
+  color:white;
+}
+.dropdown:hover .dropdown-content {
+    display:block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #461A42;
+}
+#room-wrapped{
+    margin-top:50px;
+}
+.room-component-wrapped {
+    display:block;
+    border:none;
+    border-radius:20px;
+    background: #461A42;
+}
+.room-component-wrapped  .room-title{
+    padding:30px 50px;
+    display:block;
+	width:100%;
+    color:#f0f0f0;
+}
+.room-component-wrapped  .room-title .room-classname{
+    font-size:30px;
+}
+.room-component-wrapped  .room-title .room-subject{
+    font-size:24px;
+    margin-top:15px;
+}
+.room-component-wrapped  .room-title .room-teachername{
+    font-size:16px;
+    margin-top:15px;
+}
+.room-component-wrapped  .room-content{
+     display:block;
+    width:100%;
+	background:#F0F8FF;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding:20px 0px;
+	color:#0f0f0f;
+    padding:20px 50px;
+}
+#room-wrapped .room-content{
+    text-align:center;
+}
