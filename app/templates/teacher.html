@@ -3,7 +3,9 @@
 {% block teacher_ul %}
 		  <ul class="cd-side__list js-cd-side__list">
 			<li class="cd-side__label"><span>Hành động</span></li>
-			<li class="cd-side__btn"><button class="reset"><a href="/room" target="blank" style="text-decoration:none;color:white;padding:10px 60px;">Tạo lớp</a></button></li>
+			<li class="cd-side__btn">
+				<button class="myBtn">Open Modal</button>
+				<button id="myBtn">Tạo lớp</button></li>
 		  </ul>
 {% endblock %}
 {% block teacher %}
@@ -39,5 +41,32 @@
 				</div>
 			</div>
 		  </div>
+		</div>
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+		
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div id="create-room-wrapped" >
+						<form id="formCreateRoom" class="form-create-room" action="/createRoom" method="POST">
+						  <h2>Create Room Form</h2>
+						  <div class="form-Control">
+							<label for="classname">Classname</label>
+							<input type="text" id="classname" name="classname" placeholder="Enter classname" />
+						  </div>
+						  <div class="form-Control">
+							<label for="subject">Subject</label>
+							<input type="text" id="subject" name="subject" placeholder="Enter subject" />
+						  </div>
+						  <div class="form-Control">
+							<!--<label for="username">username</label>
+							<input type="text" id="username" name="username" placeholder="Enter username" />-->
+						  </div>
+						  <img src="../static/images/cancel.png" alt="cancelImg">
+						  <button type="submit">Create</button>
+						</form>
+				</div>
+			</div>
+		
 		</div>
 {% endblock %}
