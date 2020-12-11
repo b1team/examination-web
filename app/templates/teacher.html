@@ -3,14 +3,41 @@
 {% block teacher_ul %}
 		  <ul class="cd-side__list js-cd-side__list">
 			<li class="cd-side__label"><span>Hành động</span></li>
-			<li class="cd-side__btn"><button class="reset"><a href="/room" target="blank" style="text-decoration:none;color:white">Tạo lớp</a></button></li>
+			<li class="cd-side__btn"><button class="reset"><a href="/room" target="blank" style="text-decoration:none;color:white;padding:10px 60px;">Tạo lớp</a></button></li>
 		  </ul>
 {% endblock %}
 {% block teacher %}
 		<div class="cd-content-wrapper">
 		  <div class="text-component text-center">
 			<h2>Chào mừng {{username}} tới dịch vụ của chúng tôi</h2>
-			<div class="getAllRoom"></div> Div này lấy tất cả các khóa học đã đăng</div>
+			<div class="getAllRoom">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="room-components">
+							<div class="room-title">1</div>
+							<div class="room-content">a</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="room-components">
+							<div class="room-title">1</div>
+							<div class="room-content">a</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="room-components">
+							<div class="room-title">1</div>
+							<div class="room-content">a</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="room-components">
+							<div class="room-title">1</div>
+							<div class="room-content">a</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		  </div>
 		</div>
 {% endblock %}

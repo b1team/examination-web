@@ -1,0 +1,21 @@
+.room-components{
+    border:none;
+    border-radius: 15px;
+	background: #461A42;
+    color:#f0f0f0;
+    margin-top:25px;
+}
+.room-components .room-title{
+    display:block;
+	width:100%;
+	padding:10px 0px;
+}
+.room-components .room-content{
+    display:block;
+    width:100%;
+	background:#F0F8FF;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding:20px 0px;
+	color:#0f0f0f;
+}
