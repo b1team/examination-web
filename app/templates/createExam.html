@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	<link rel="stylesheet" href="../static/css/grid.css">
+	<link rel="stylesheet" href="../static/css/room.css">
+	<link rel="stylesheet" href="../static/css/popup.css">
+	<title>Classrooms</title>
+	<style>.form-Control{
+		margin-top:10px;
+	}
+	#key{
+		margin-left:10px;
+	}</style>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="header-desktop hidden-xs hidden-sm">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="logo-wrapper">
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png"
+									style="height:100px; width:120px;display:block;" alt="Logo"></a>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a href="#0">
+									<img src="../static/images/cd-avatar.svg" alt="avatar"
+										style="height:24px;width:24px;border-radius:50%;">
+									<span>Tài khoản</span>
+								</a>
+							</button>
+							<div class="dropdown-content">
+								<a href="#0">Tài khoản của tôi</a>
+								<a href="#0">Thay đổi thông tin</a>
+								<a href="/logout">Đăng xuất</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-mobile hidden-lg hidden-md">
+				<div class="row"></div>
+			</div>
+		</div>
+	</header>
+	<section id="room-wrapped">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1">
+
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<div class="room-component-wrapped">
+						<div class="room-content">
+							<form id="formQuestion" class="form-create-question" action="/create-question" method="POST">
+								<h2>Form Question</h2>
+								<div class="form-Control">
+									<label for="question">Question</label>
+									<textarea type="text" id="question" name="question" placeholder="Enter question" cols="60" 
+									rows="3" /></textarea>
+								</div>
+								<div class="form-Control">
+									<label for="answer">A: </label>
+									<input type="text" id="answer" name="answerA" placeholder="Enter answer" />
+									<input type="radio" id="answerA" name="key" placeholder="Correct answer" value="0"/>
+								</div>
+								<div class="form-Control">
+									<label for="answer">B: </label>
+									<input type="text" id="answer" name="answerB" placeholder="Enter answer" />
+									<input type="radio" id="answerB" name="key" placeholder="" value="1" />
+								</div>
+								<div class="form-Control">
+									<label for="answer">C :</label>
+									<input type="text" id="answer" name="answerC" placeholder="Enter answer" />
+									<input type="radio" id="answerC" name="key" placeholder="" value="2"/>
+								</div>
+								<div class="form-Control">
+									<label for="answer">D :</label>
+									<input type="text" id="answer" name="answerD" placeholder="Enter answer" />
+									<input type="radio" id="answerD" name="key" placeholder="" value="3"/>
+								</div>
+								<div class="form-Control">
+									<label for="level">Choose a level question:</label>
+									<select name="level" id="level">
+										<option value="1">Easy</option>
+										<option value="2">Medium</option>
+										<option value="3">Hard</option>
+										<option value="4">Super hard</option>
+										<option value="5">Gineus</option>
+									</select>
+								</div>
+								<button type="submit">Create</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1">
+
+				</div>
+				</row>
+			</div>
+	</section>
+
+</body>
+
+</html>

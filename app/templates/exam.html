@@ -66,34 +66,29 @@
 
 				</div>
 				<div class="col-lg-12">
-                    <form id="formAnswerQuestion" class="form-answer-question" action="/answerQuestion" method="POST">
-                        <h2>Form Answer Question</h2>
-                        <div class="form-Control">
-                            <label for="question">Question</label>
-                            <input type="text" id="question" name="question" placeholder="Enter question" />
-                        </div>
-                        <div class="form-Control">
-                            <input type="radio" id="answer" name="answer" value="">
-                            <label for="answer">A</label><br>
-                        </div>
-                        <div class="form-Control">
-                            <input type="radio" id="answer" name="answer" value="">
-                            <label for="answer">B</label><br>
-                        </div>
-                        <div class="form-Control">
-                            <input type="radio" id="answer" name="answer" value="">
-                            <label for="answer">C</label><br>
-                        </div>
-                        <div class="form-Control">
-                            <input type="radio" id="answer" name="answer" value="">
-                            <label for="answer">D</label><br>
-                        </div>
-                        <button type="submit">Done</button>
-                    </form>
-                </div>
+					<form id="formAnswerQuestion" class="form-answer-question" action="/exam" method="POST">
+						{% for exam in exams | shuffle %}
+						<div class="form-Control">
+							<p>Question: <em style="color: red; border: 1px bold;">{{exam.ques}}</em></p>
+						</div>
+						{% for answer in exam.answ | shuffle %}
+						<div class="form-Control">
+							<input type="radio" id="{{answer.value}}" name="{{exam.Id}}" value={{answer.id}}>
+							<label for="{{answer.value}}">{{answer.value}}</label><br>
+						</div>
+						{% endfor %}
+						{% endfor %}
+						<button type="submit">Done</button>
+					</form>
+				</div>
 			</div>
 	</section>
-	<script src='../static/javascript/callback.js'></script>
+
 </body>
+<style>
+	.form-Control {
+		margin-top: 10px;
+	}
+</style>
 
 </html>
