@@ -1,4 +1,4 @@
-from app.routers.user import user, session, redirect, url_for
+from app.routers.user import user
 from app.models.user import Storage
 from app.routers.user import render_template, request
 from random import shuffle
