@@ -1,8 +1,8 @@
 from flask import Flask
 from app.db.database import initialize_db
 from app.routers.auth import login, register
-from app.routers import home
-from app.routers.user import student, teacher, room, user_form, exam
+from app.routers import home, room, exam
+from app.routers.user import student, teacher, user_form
 
 
 def create_app():

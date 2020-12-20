@@ -71,12 +71,12 @@
 	<!-- Modal content -->
 	<div class="modal-content">
 		<div id="create-room-wrapped">
-			<form id="formCreateRoom" class="form-create-room" action="/createRoom" method="POST">
+			<form id="formCreateRoom" class="form-create-room" action="/room" method="POST">
 				<span class="close">&times;</span>
 				<h2>Create Room Form</h2>
 				<div class="form-Control">
 					<label for="username">username</label>
-					<input type="text" id="username" name="username" placeholder="Enter username" disabled />
+					<input type="text" id="username" name="username" placeholder="{{username}}" disabled />
 				</div>
 				<div class="form-Control">
 					<label for="classname">Classname</label>

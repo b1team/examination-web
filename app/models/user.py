@@ -1,14 +1,21 @@
-from mongoengine.base.fields import ObjectIdField
 from mongoengine.fields import ListField
 from app.db.database import db
 
 
-class User(db.Document):
+class User(db.EmbeddedDocument):
+    user_id = db.IntField(db_field="_id")
     username = db.StringField(required=True, max_length=15)
     password = db.StringField(required=True)
     email = db.EmailField(required=True)
     gender = db.StringField(required=True)
     classify = db.StringField(required=True)
+
+class Room(db.Document):
+    room_id = db.ObjectIdField(db_field="_id")
+    room_name = db.StringField(required=True)
+    user_id = db.ObjectIdField(required=True)
+    subject = db.StringField(required=True)
+    room_code = db.StringField(required=True)
 
 
 class Answer(db.EmbeddedDocument):

@@ -2,7 +2,7 @@ from app.routers.user import user, request
 from app.models.user import Storage, Answer
 
 
-@user.route("/create-question", methods=["POST"])
+@user.route("/question", methods=["POST"])
 def create_question():
     question_info = request.form.to_dict()
     result = []

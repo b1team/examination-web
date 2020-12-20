@@ -25,6 +25,7 @@ def login():
 
     if user and check_password_hash(user.password, user_info.get("password")):
         session["user"] = {
+            "user_id": user.user_id,
             "username": user.username,
             "classify": user.classify,
         }
