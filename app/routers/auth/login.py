@@ -25,11 +25,11 @@ def login():
 
     if user and check_password_hash(user.password, user_info.get("password")):
         session["user"] = {
-            "user_id": user.user_id,
             "username": user.username,
             "classify": user.classify,
+            "user_id": str(user.user_id),
         }
-        return redirect(url_for(f"user.user_form"))
+        return redirect(url_for(f"user.{user.classify}_form"))
 
     flash("username or password is incorrect")
     return redirect(request.url)

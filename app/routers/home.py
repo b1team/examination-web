@@ -10,4 +10,4 @@ def home():
 
 @bp.route("/start", methods=["GET"])
 def start():
-    return redirect(url_for(f"user.user_form"))
+    return redirect(url_for(f"user.{session['user'].get('classify')}_form"))

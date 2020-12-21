@@ -10,58 +10,24 @@
 {% block teacher %}
 <div class="cd-content-wrapper">
 	<div class="text-component text-center">
-		<h2>Chào mừng {{username}} tới dịch vụ của chúng tôi</h2>
+		<h2>Chào mừng {{username}}</h2>
 		<div class="getAllRoom">
 			<div class="row">
 				<div class="col-lg-3">
+					{% for room in rooms %}
 					<a href="/room" target="blank">
 						<div class="room-components">
 							<div class="room-title">
-								<div class="room-classname">classname</div>
-								<div class="room-subject">subject</div>
-								<div class="room-teachername">teacher</div>
+								<div class="room-classname">{{room.room_name}}</div>
+								<div class="room-subject">{{room.subject}}</div>
 							</div>
-							<div class="room-content">a</div>
+							<div class="room-content"></div>
 						</div>
 					</a>
-				</div>
-				<div class="col-lg-3">
-					<a href="/room" target="blank">
-						<div class="room-components">
-							<div class="room-title">
-								<div class="room-classname">classname</div>
-								<div class="room-subject">subject</div>
-								<div class="room-teachername">teacher</div>
-							</div>
-							<div class="room-content">a</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-3">
-					<a href="/room" target="blank">
-						<div class="room-components">
-							<div class="room-title">
-								<div class="room-classname">classname</div>
-								<div class="room-subject">subject</div>
-								<div class="room-teachername">teacher</div>
-							</div>
-							<div class="room-content">a</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-3">
-					<a href="/room" target="blank">
-						<div class="room-components">
-							<div class="room-title">
-								<div class="room-classname">classname</div>
-								<div class="room-subject">subject</div>
-								<div class="room-teachername">teacher</div>
-							</div>
-							<div class="room-content">a</div>
-						</div>
-					</a>
+					{% endfor %}
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </div>
