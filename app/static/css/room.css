@@ -87,9 +87,11 @@ a{text-decoration:none;color:white;}
     margin-top:15px;
 }
 .room-component-wrapped  .room-content{
-     display:block;
+    display:block;
     width:100%;
-	background:#F0F8FF;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background:#fff;
+    margin-top:20px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	padding:20px 0px;
@@ -98,4 +100,12 @@ a{text-decoration:none;color:white;}
 }
 #room-wrapped .room-content{
     text-align:center;
+}
+.create-rooms {
+    margin-top:20px;
+}
+.create-rooms button{
+    background-color:#461A42;
+    color:#fff;
+    padding:15px 25px;
 }

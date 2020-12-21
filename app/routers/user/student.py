@@ -3,7 +3,6 @@ from app.models.user import Storage
 from app.routers.user import render_template, request
 from random import shuffle
 from jinja2 import environment
-import multitimer
 import time
 
 
