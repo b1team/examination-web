@@ -38,3 +38,15 @@
     text-decoration: none;
     cursor: pointer;
   }
+#myModal .modal-content .form-Control {
+  margin-top:25px;
+}
+#myModal .modal-content button {
+  margin-top:20px;
+  padding:10px 25px;
+  background:#461A42;
+  color:#fff;
+  border:none;
+  outline:none;
+  border-radius:10px;
+}

@@ -13,8 +13,8 @@
 		<h2>Chào mừng {{username}}</h2>
 		<div class="getAllRoom">
 			<div class="row">
+				{% for room in rooms %}
 				<div class="col-lg-3">
-					{% for room in rooms %}
 					<a href="/room" target="blank">
 						<div class="room-components">
 							<div class="room-title">
@@ -24,10 +24,9 @@
 							<div class="room-content"></div>
 						</div>
 					</a>
-					{% endfor %}
 				</div>
+				{% endfor %}
 			</div>
-			
 		</div>
 	</div>
 </div>
@@ -41,7 +40,7 @@
 				<span class="close">&times;</span>
 				<h2>Create Room Form</h2>
 				<div class="form-Control">
-					<label for="username">username</label>
+					<label for="username">Username</label>
 					<input type="text" id="username" name="username" placeholder="{{username}}" disabled />
 				</div>
 				<div class="form-Control">
@@ -51,10 +50,6 @@
 				<div class="form-Control">
 					<label for="subject">Subject</label>
 					<input type="text" id="subject" name="subject" placeholder="Enter subject" />
-				</div>
-				<div class="form-Control">
-					<!--<label for="username">username</label>
-							<input type="text" id="username" name="username" placeholder="Enter username" />-->
 				</div>
 				<button type="submit">Create</button>
 			</form>
