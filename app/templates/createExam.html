@@ -10,12 +10,6 @@
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<link rel="stylesheet" href="../static/css/editormd.css" />
 	<title>Classrooms</title>
-	<style>.form-Control{
-		margin-top:10px;
-	}
-	#key{
-		margin-left:10px;
-	}</style>
 </head>
 
 <body>
@@ -55,23 +49,24 @@
 	<section id="room-wrapped">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1">
-
-				</div>
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-content">
-							<form id="formQuestion" class="form-create-question" action="/create-question" method="POST">
+							<form id="formQuestion" class="form-create-question" action="/question" method="POST" >
 								<h2>Form Question</h2>
 								<div class="form-Control">
 									<label for="question">Question</label>
 									<!--<textarea type="text" id="question" name="question" placeholder="Enter question" cols="60" 
 									rows="3"></textarea>-->
-									<!---->
+									-
 									<div id="test-editor">
-										<textarea style="display:none;"></textarea>
+										<textarea style="display:none;" id="question" name="question"></textarea>
 									</div>
-									<!---->
+									
+										<!--<textarea name="editor1" id="editor1" rows="10" cols="80">
+					This is my textarea to be replaced with CKEditor 4.
+				</textarea>-->
 								</div>
 								<div class="form-Control">
 									<label for="answer">A: </label>
@@ -108,10 +103,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1">
-
-				</div>
-				</row>
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>
 			</div>
 	</section>
 
@@ -119,6 +111,7 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
+<!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
 <script type="text/javascript">
     $(function() {
         var editor = editormd("test-editor", {
@@ -128,4 +121,14 @@
         });
     });
 </script>
+<!--
+<script>
+config.extraPlugins = 'eqneditor';
+CKEDITOR.plugins.addExternal( 'eqneditor', '/ckeditor/plugins/eqneditor', 'plugin.js' );
+
+// extraPlugins needs to be set too.
+CKEDITOR.replace( 'editor1', {
+        extraPlugins: 'eqneditor'
+} );           
+</script>-->
 </html>

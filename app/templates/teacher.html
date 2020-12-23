@@ -15,7 +15,7 @@
 			<div class="row">
 				{% for room in rooms %}
 				<div class="col-lg-3">
-					<a href="/room" target="blank">
+					<a href="/room/{{room.room_id}}" target="blank">
 						<div class="room-components">
 							<div class="room-title">
 								<div class="room-classname">{{room.room_name}}</div>
@@ -49,7 +49,7 @@
 				</div>
 				<div class="form-Control">
 					<label for="subject">Subject</label>
-					<input type="text" id="subject" name="subject" placeholder="Enter subject" />
+					<input type="text" id="subject" name="subject" placeholder="Enter subject"/>
 				</div>
 				<button type="submit">Create</button>
 			</form>

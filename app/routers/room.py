@@ -12,12 +12,15 @@ from app.models.room import Room, Teacher
 from bson import ObjectId
 
 
-@user.route("/room", methods=["GET"])
-def room_form():
-    if session.get("user", None):
-        if session["user"].get("classify") == "teacher":
-            return render_template("room.html")
-    return redirect(url_for("home.home"))
+@user.route("/room/<room_id>", methods=["GET"])
+def room_form(room_id=None):
+    room = Room.objects(room_id=room_id).first() 
+    if room:
+        if session.get("user", None):
+            if session["user"].get("classify") == "teacher":
+                return render_template("room.html", room=room)
+        return redirect(url_for("home.home"))
+    return 'wrong id room'
 
 
 def random_code():

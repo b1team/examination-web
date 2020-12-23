@@ -55,10 +55,10 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
-							<div class="room-classname">classname</div>
-							<div class="room-subject">subject</div>
-							<div class="room-teachername">teacher</div>
-							<div class="room-code">ROOM CODE !</div>
+							<div class="room-classname">Classname : {{room.room_name}}</div>
+							<div class="room-subject">Subject : {{room.subject}}</div>
+							<div class="room-teachername">Teacher : {{room.teacher.teacher_name}}</div>
+							<div class="room-code">Code: {{room.room_code}}</div>
 						</div>
 						<div class="room-content"></div>
 					</div>
@@ -78,5 +78,4 @@
 	</section>
 
 </body>
-
 </html>
