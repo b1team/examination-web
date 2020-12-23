@@ -49,10 +49,8 @@
 	<section id="room-wrapped">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-1 col-md-1 col-md-0 col-xs-0">
-
-				</div>
-				<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
 							<div class="room-classname">classname</div>
@@ -61,11 +59,6 @@
 						</div>
 						<div class="room-content"></div>
 					</div>
-				</div>
-				<div class="col-lg-1 col-md-1 col-md-0 col-xs-0">
-
-				</div>
-				<div class="col-lg-12">
 					<form id="formAnswerQuestion" class="form-answer-question" action="/exam" method="POST">
 						{% for exam in exams | shuffle %}
 						<div class="form-Control">
@@ -81,14 +74,17 @@
 						<button type="submit">Done</button>
 					</form>
 				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
 			</div>
 	</section>
-
 </body>
-<style>
+<!--<style>
 	.form-Control {
 		margin-top: 10px;
 	}
-</style>
+	form{
+		margin-top:20px;
+	}
+</style>-->
 
 </html>
