@@ -1,5 +1,6 @@
 from app.routers.user import user
 from app.models.storage import Storage
+from bson import ObjectId
 from app.routers.user import (
     render_template,
     request,
@@ -9,6 +10,7 @@ from app.routers.user import (
 )
 from random import shuffle
 from jinja2 import environment
+from app.models.room import Room, Student
 
 
 def filter_shuffle(seq):
@@ -27,14 +29,19 @@ environment.DEFAULT_FILTERS["shuffle"] = filter_shuffle
 def student_form():
     if session.get("user", None):
         username = session["user"].get("username")
-        return render_template("student.html", username=username)
+        user_id = ObjectId(session["user"].get("user_id"))
+        rooms = Room.objects()
+        return render_template("student.html", username=username, rooms=rooms)
     return redirect(url_for("auth.login"))
 
 
 @user.route("/exam", methods=["GET"])
 def show_exam():
-    exams = Storage.objects()
-    return render_template("exam.html", exams=exams)
+    if session.get("user", None):
+        if session["user"].get("classify") == "student":
+            exams = Storage.objects()
+            return render_template("exam.html", exams=exams)
+    return redirect(url_for("auth.login"))
 
 
 @user.route("/exam", methods=["POST"])

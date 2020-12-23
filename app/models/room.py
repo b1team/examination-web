@@ -1,4 +1,3 @@
-from app.routers.user import student
 from mongoengine.fields import ListField
 from app.db.database import db
 

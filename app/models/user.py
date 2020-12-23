@@ -8,7 +8,3 @@ class User(db.Document):
     email = db.EmailField(required=True)
     gender = db.StringField(required=True)
     classify = db.StringField(required=True)
-
-
-class Exam(db.Document):
-    pass

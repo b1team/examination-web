@@ -1,5 +1,15 @@
 {% extends "user.html" %}
 {% block title %} Student BeSmart {% endblock %}
+{% block student_ul %}
+<form action="/join-room/{{room.room_id}}" method="POST">
+    <ul class="cd-side__list js-cd-side__list">
+        <li class="cd-side__label"><span>Hành động</span></li>
+        <li class="cd-side__btn">
+            <button id="joinBtn">Tham gia</button></li>
+    </ul>
+        
+</form>
+{% endblock %}
 {% block student %}
 	    <!--Phần riêng mỗi form-->
 		<div class="cd-content-wrapper">
@@ -15,8 +25,6 @@
 				<div class="getAllRoom">
 					<div class="row">
 						<div class="col-lg-3">
-							{% for room in rooms %}
-							<a href="/exam">
 							<div class="room-components">
 								<div class="room-title">
 									<div class="room-classname">{{room.room_name}}</div>
@@ -25,8 +33,6 @@
 								</div>
 								<div class="room-content">a</div>
 							</div>
-							</a>
-							{% endfor %}
 						</div>
 					</div>
 				</div>
