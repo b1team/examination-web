@@ -26,6 +26,6 @@ class Question(db.EmbeddedDocument):
 class Exam(db.Document):
     exam_id = db.ObjectIdField(db_field="_id")
     room_id = db.ObjectIdField(db_field="room_id")
-    duration = db.StringField()
+    duration = db.IntField()
     questions = ListField(db.EmbeddedDocumentField(Question))
     students = ListField()

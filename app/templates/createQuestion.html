@@ -66,25 +66,25 @@
 								<div class="form-Control">
 									<label for="answer">A: </label>
 									<input type="text" id="answer" name="answerA" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="Correct answer" value="0"/>
+									<input type="radio" id="answerA" name="key" placeholder="Correct answer" value="0"/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">B: </label>
 									<input type="text" id="answer" name="answerB" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="1" />
+									<input type="radio" id="answerB" name="key" placeholder="" value="1" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">C :</label>
 									<input type="text" id="answer" name="answerC" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="2"/>
+									<input type="radio" id="answerC" name="key" placeholder="" value="2"/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">D :</label>
 									<input type="text" id="answer" name="answerD" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="3"/><!--AnswerA-->
+									<input type="radio" id="answerD" name="key" placeholder="" value="3"/><!--AnswerA-->
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
@@ -93,8 +93,6 @@
 										<option value="1">Easy</option>
 										<option value="2">Medium</option>
 										<option value="3">Hard</option>
-										<option value="4">Super hard</option>
-										<option value="5">Genius</option>
 									</select>
 								</div>
 								<button type="submit">Create</button>
@@ -121,14 +119,4 @@
         });
     });
 </script>
-<!--
-<script>
-config.extraPlugins = 'eqneditor';
-CKEDITOR.plugins.addExternal( 'eqneditor', '/ckeditor/plugins/eqneditor', 'plugin.js' );
-
-// extraPlugins needs to be set too.
-CKEDITOR.replace( 'editor1', {
-        extraPlugins: 'eqneditor'
-} );           
-</script>-->
 </html>

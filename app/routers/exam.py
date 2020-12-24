@@ -12,12 +12,19 @@ from app.models.room import Room
 from bson import ObjectId
 
 
+@user.route("/question-form", methods=["GET"])
+def show_question_form():
+    if session.get("user", None):
+        if session["user"].get("classify") == "teacher":
+            return render_template("createQuestion.html")
+    return redirect(url_for("auth.login"))
+
+
 @user.route("/exam-form", methods=["GET"])
 def show_exam_form():
     if session.get("user", None):
         if session["user"].get("classify") == "teacher":
-            return render_template("createExam.html")
-<<<<<<< HEAD
+            return render_template("formExam.html")
     return redirect(url_for("auth.login"))
 
 
@@ -40,7 +47,7 @@ def create_exam():
             )
         exam = Exam(
             room_id=room.room_id,
-            duration=exam_info.get("duration"),
+            duration=int(exam_info.get("duration")),
             questions=questions,
         )
         exam.save()
@@ -64,14 +71,9 @@ def show_exam_question(room_id=None):
 def check_answer():
     questions = request.form.to_dict()
     result = []
-    """
     for question, answer in questions.items():
         q = Storage.objects(Id=question).first()
         if q:
             if str(q.correct_answer) == answer:
                 result.append(answer)
-    """
     return f"correct answer {len(result)}"
-=======
-    return redirect(url_for("auth.login"))
->>>>>>> 140db960f84744f55d8c77f663cec8b625626d32
