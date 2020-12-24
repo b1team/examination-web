@@ -53,20 +53,20 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
-							<div class="room-classname">classname</div>
-							<div class="room-subject">subject</div>
-							<div class="room-teachername">teacher</div>
+							<div class="room-classname">classname: {{room.room_name}}</div>
+							<div class="room-subject">subject: {{room.subject}}</div>
+							<div class="room-teachername">teacher: {{room.teacher.teacher_name}}</div>
 						</div>
 						<div class="room-content"></div>
 					</div>
-					<form id="formAnswerQuestion" class="form-answer-question" action="/exam" method="POST">
-						{% for exam in exams | shuffle %}
+					<form id="formAnswerQuestion" class="form-answer-question" action="/result" method="POST">
+						{% for question in questions.questions | shuffle %}
 						<div class="form-Control">
-							<p>Question: <em style="color: red; border: 1px bold;">{{exam.ques}}</em></p>
+							<p>Question: <em style="color: red; border: 1px bold;">{{question.question_name}}</em></p>
 						</div>
-						{% for answer in exam.answ | shuffle %}
+						{% for answer in question.answer | shuffle %}
 						<div class="form-Control">
-							<input type="radio" id="{{answer.value}}" name="{{exam.Id}}" value={{answer.id}}>
+							<input type="radio" id="{{answer.value}}" name="{{question.Id}}" value={{answer.id}}>
 							<label for="{{answer.value}}">{{answer.value}}</label><br>
 						</div>
 						{% endfor %}

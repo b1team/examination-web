@@ -14,13 +14,13 @@ from bson import ObjectId
 
 @user.route("/room/<room_id>", methods=["GET"])
 def room_form(room_id=None):
-    room = Room.objects(room_id=room_id).first() 
+    room = Room.objects(room_id=room_id).first()
     if room:
         if session.get("user", None):
             if session["user"].get("classify") == "teacher":
                 return render_template("room.html", room=room)
         return redirect(url_for("home.home"))
-    return 'wrong id room'
+    return "wrong id room"
 
 
 def random_code():
@@ -37,6 +37,7 @@ def random_code():
 def create_room():
     room_info = request.form.to_dict()
     room_code = random_code()
+
     teacher = Teacher(
         teacher_id=ObjectId(session["user"].get("user_id")),
         teacher_name=session["user"].get("username"),
@@ -57,10 +58,7 @@ def join_room(room_id=None):
     student_id = session["user"].get("user_id")
     room = Room.objects.get_or_404(room_id=room_id)
     if room:
-        new_student = Student(
-            student_id=student_id,
-            student_name=student_name
-        )
+        new_student = Student(student_id=student_id, student_name=student_name)
         Room.objects(room_id=room_id).update(push__student=new_student)
         return redirect(url_for("user.student_form"))
 

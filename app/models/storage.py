@@ -9,7 +9,7 @@ class Answer(db.EmbeddedDocument):
 
 class Storage(db.Document):
     Id = db.ObjectIdField(db_field="_id")
-    ques = db.StringField(required=True)
-    answ = ListField(db.EmbeddedDocumentField(Answer))
+    question = db.StringField(required=True)
+    answer = ListField(db.EmbeddedDocumentField(Answer))
     correct_answer = db.IntField()
     level = db.StringField(required=True)

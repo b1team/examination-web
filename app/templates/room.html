@@ -27,7 +27,7 @@
 						<div class="dropdown">
 							<button class="dropbtn">
 								<a href="#0">
-									<img src="../static/images/cd-avatar.svg" alt="avatar"
+									<img src="..ObjectIdField()/static/images/cd-avatar.svg" alt="avatar"
 										style="height:24px;width:24px;border-radius:50%;">
 									<span>Tài khoản</span>
 								</a>
@@ -71,8 +71,11 @@
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 					<div class="create-room">
-						<a href="/exam-form">Create Exam</a>
+						<a href="/exam-form">Create question</a>
 					</div>
+					<form action='/exam' method="POST">
+						<button type="submit">Create exam</button>
+					</form>
 				</div>
 			</div>
 	</section>

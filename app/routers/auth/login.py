@@ -14,7 +14,7 @@ from app.routers.auth import (
 @auth.route("/login", methods=["GET"])
 def login_form():
     if session.get("user", None):
-        return redirect(url_for(f"user.room_form"))
+        return redirect(url_for("home.home"))
     return render_template("login.html")
 
 

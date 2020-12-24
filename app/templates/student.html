@@ -14,9 +14,9 @@
             <div class="getAllRoomEnterd">
 				<div class="getAllRoom">
 					<div class="row">
-						<div class="col-lg-3">
 							{% for room in rooms %}
-							<a href="/exam">
+							<div class="col-lg-3">
+							<a href="/exam/{{room.room_id}}">
 							<div class="room-components">
 								<div class="room-title">
 									<div class="room-classname">{{room.room_name}}</div>
@@ -26,8 +26,8 @@
 								<div class="room-content">a</div>
 							</div>
 							</a>
-							{% endfor %}
 						</div>
+							{% endfor %}
 					</div>
 				</div>
 			</div>

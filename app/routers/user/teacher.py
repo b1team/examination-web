@@ -8,7 +8,7 @@ from app.routers.user import (
 )
 from bson import ObjectId
 from app.models.storage import Storage, Answer
-from app.models.room import Teacher, Room
+from app.models.room import Room
 
 
 @user.route("/teacher", methods=["GET"])
@@ -16,7 +16,7 @@ def teacher_form():
     if session.get("user", None):
         username = session["user"].get("username")
         user_id = ObjectId(session["user"].get("user_id"))
-        rooms = Room.objects()
+        rooms = Room.objects(teacher__teacher_id=user_id).exclude("teacher")
         return render_template("teacher.html", username=username, rooms=rooms)
     return redirect(url_for("auth.login"))
 
@@ -28,10 +28,10 @@ def create_question():
     for index, an in enumerate("ABCD", start=0):
         result.append(Answer(id=index, value=question_info.get(f"answer{an}")))
     exam = Storage(
-        ques=question_info.get("question"),
-        answ=result,
+        question=question_info.get("question"),
+        answer=result,
         correct_answer=question_info.get("key"),
         level=question_info.get("level"),
     )
     exam.save()
-    return "ok"
+    return redirect(request.referrer)
