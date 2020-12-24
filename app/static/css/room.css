@@ -145,3 +145,18 @@ a{text-decoration:none;color:white;}
 #key{
     margin-left:10px;
 }
+#formExam .form-Control {
+    margin-top:20px;
+    font-size:16px;
+    width:100%;
+}
+#formExam .form-Control label{
+    display:inline-block;
+    width:20%;
+}
+#formExam .form-Control input{
+    width:79%;
+    display:inline-block;
+    height:30px;
+    font-size:16px;
+}

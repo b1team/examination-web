@@ -17,6 +17,7 @@ def show_exam_form():
     if session.get("user", None):
         if session["user"].get("classify") == "teacher":
             return render_template("createExam.html")
+<<<<<<< HEAD
     return redirect(url_for("auth.login"))
 
 
@@ -71,3 +72,6 @@ def check_answer():
                 result.append(answer)
     """
     return f"correct answer {len(result)}"
+=======
+    return redirect(url_for("auth.login"))
+>>>>>>> 140db960f84744f55d8c77f663cec8b625626d32

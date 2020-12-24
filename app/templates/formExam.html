@@ -54,48 +54,37 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-content">
-							<form id="formQuestion" class="form-create-question" name="formQuestion" action="/question" method="POST" >
-								<h2>Form Question</h2>
+							<form id="formExam" class="form-exam" name="formExam" action="/" method="POST" >
+								<h1>Examination</h1>
 								<div class="form-Control">
-									<label for="question">Question</label>
-									<div id="test-editor">
-										<textarea style="display:none;" id="question" name="question"></textarea>
-									</div>
+									<label for="answer">Duration: </label>
+									<input type="text" id="duration" name="duration" placeholder="Enter duration!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">A: </label>
-									<input type="text" id="answer" name="answerA" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="Correct answer" value="0"/>
+									<label for="answer">Number of question: </label>
+									<input type="text" id="num" name="num" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">B: </label>
-									<input type="text" id="answer" name="answerB" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="1" />
+									<label for="answer">Easy: </label>
+									<input type="text" id="num" name="num_easy" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">C :</label>
-									<input type="text" id="answer" name="answerC" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="2"/>
+									<label for="answer">Medium: </label>
+									<input type="text" id="num" name="num_med" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">D :</label>
-									<input type="text" id="answer" name="answerD" placeholder="Enter answer" />
-									<input type="radio" id="answerKey" name="key" placeholder="" value="3"/><!--AnswerA-->
+									<label for="answer">Hard: </label>
+									<input type="text" id="num" name="num_hard" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="level">Choose a level question:</label>
-									<select name="level" id="level">
-										<option value="1">Easy</option>
-										<option value="2">Medium</option>
-										<option value="3">Hard</option>
-										<option value="4">Super hard</option>
-										<option value="5">Genius</option>
-									</select>
+									<label for="answer">Genius: </label>
+									<input type="text" id="num" name="num_geni" placeholder="Enter number of question!" />
+									<small>Error message</small>
 								</div>
 								<button type="submit">Create</button>
 							</form>
