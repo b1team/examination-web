@@ -36,7 +36,7 @@
 	<!-- Modal content -->
 	<div class="modal-content">
 		<div id="create-room-wrapped">
-			<form id="formCreateRoom" class="form-create-room" action="/room" method="POST">
+			<form id="formCreateRoom" class="form-create-room" name="formCreateRoom" action="/room" method="POST">
 				<span class="close">&times;</span>
 				<h2>Create Room Form</h2>
 				<div class="form-Control">
@@ -46,10 +46,12 @@
 				<div class="form-Control">
 					<label for="classname">Classname</label>
 					<input type="text" id="classname" name="classname" placeholder="Enter classname" />
+					<small>Error message</small>
 				</div>
 				<div class="form-Control">
 					<label for="subject">Subject</label>
 					<input type="text" id="subject" name="subject" placeholder="Enter subject" />
+					<small>Error message</small>
 				</div>
 				<button type="submit">Create</button>
 			</form>
