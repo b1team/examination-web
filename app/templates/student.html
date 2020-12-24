@@ -7,27 +7,27 @@
 				  <h2>Chào mừng {{username}}</h2>
 				  <form action="/student/search" method="GET">
             <div class="searchBar">
-                <input type="text" name="q" placeholder="Search rooms">
-                <button type="submit">Search</button>
+                <input type="text" name="q" placeholder="Search rooms" style="height:40px;">
+                <button type="submit" style="background:#227bb1;border:none;padding:5px 20px;color:#fff;border-radius: 3px;">Search</button>
 			</div>
 		</form>
             <div class="getAllRoomEnterd">
 				<div class="getAllRoom">
 					<div class="row">
-						<div class="col-lg-3">
 							{% for room in rooms %}
-							<a href="/exam">
-							<div class="room-components">
-								<div class="room-title">
-									<div class="room-classname">{{room.room_name}}</div>
-									<div class="room-subject">{{room.subject}}</div>
-									<div class="room-teachername">{{room.teacher.teacher_name}}</div>
-								</div>
-								<div class="room-content">a</div>
+							<div class="col-lg-3">
+								<a href="/exam">
+									<div class="room-components">
+										<div class="room-title">
+											<div class="room-classname">{{room.room_name}}</div>
+											<div class="room-subject">{{room.subject}}</div>
+											<div class="room-teachername">{{room.teacher.teacher_name}}</div>
+										</div>
+										<div class="room-content">a</div>
+									</div>
+								</a>
 							</div>
-							</a>
 							{% endfor %}
-						</div>
 					</div>
 				</div>
 			</div>

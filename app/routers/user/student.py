@@ -46,9 +46,9 @@ def show_exam():
 
 @user.route("/exam", methods=["POST"])
 def check_answer():
-    ques = request.form.to_dict()
+    question = request.form.to_dict()
     result = []
-    for question, answer in ques.items():
+    for question, answer in question.items():
         q = Storage.objects(Id=question).first()
         if q:
             if str(q.correct_answer) == answer:
