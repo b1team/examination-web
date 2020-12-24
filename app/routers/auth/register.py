@@ -14,7 +14,7 @@ from app.routers.auth import (
 @auth.route("/register", methods=["GET"])
 def register_form():
     if session.get("user", None):
-        return redirect(url_for(f"user.user_form"))
+        return redirect(url_for(f"home.home"))
     return render_template("register.html")
 
 
