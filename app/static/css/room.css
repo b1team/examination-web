@@ -4,11 +4,11 @@
     padding:0px;
 }
 header {
-    background:#461A42;
+    background:#227bb1;
     height:90px;
 }
 .dropbtn {
-  background-color: #461A42;
+  background-color: #227bb1;
   color: white;
   padding: 15px 25px;
   border: none;
@@ -34,7 +34,7 @@ a{text-decoration:none;color:white;}
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #461A42;
+  background-color: #227bb1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -58,7 +58,7 @@ a{text-decoration:none;color:white;}
     display:block;
 }
 .dropdown:hover .dropbtn {
-  background-color: #461A42;
+  background-color: #227bb1;
 }
 #room-wrapped{
     margin-top:50px;
@@ -67,7 +67,7 @@ a{text-decoration:none;color:white;}
     display:block;
     border:none;
     border-radius:20px;
-    background: #461A42;
+    background: #227bb1;
 }
 .room-component-wrapped  .room-title{
     padding:30px 50px;
@@ -94,7 +94,7 @@ a{text-decoration:none;color:white;}
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	padding:20px 0px;
-	color:#461A42;
+	color:#227bb1;
     padding:20px 50px;
 }
 #room-wrapped .room-content{
@@ -104,7 +104,7 @@ a{text-decoration:none;color:white;}
     margin-top:30px;
 }
 #room-wrapped .create-room a{
-    background:#461A42;
+    background:#227bb1;
     color:#fff;
     padding:10px 25px;
     border:none;
@@ -127,7 +127,7 @@ a{text-decoration:none;color:white;}
 #room-wrapped .room-content button{
   margin-top:20px;
   padding:10px 25px;
-  background:#461A42;
+  background:#227bb1;
   color:#fff;
   border:none;
   outline:none;
@@ -136,7 +136,7 @@ a{text-decoration:none;color:white;}
 #formAnswerQuestion button{
   margin-top:20px;
   padding:10px 25px;
-  background:#461A42;
+  background:#227bb1;
   color:#fff;
   border:none;
   outline:none;

@@ -9,7 +9,27 @@
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<title>Classrooms</title>
-
+	<style>
+		.form-Control{
+            margin-top:10px;
+            width:100%;
+            text-align:center;
+        }
+        .form-Control .student-name{
+            width:50%;
+            display:inline-block;
+            font-size:20px;
+        }
+        .form-Control .student-score{
+            width:49%;
+            display:inline-block;
+            font-size:20px;
+        }
+		#formScore{
+			margin-top:30px;
+			text-align:left;
+		}
+	</style>
 </head>
 
 <body>
@@ -27,7 +47,7 @@
 						<div class="dropdown">
 							<button class="dropbtn">
 								<a href="#0">
-									<img src="..ObjectIdField()/static/images/cd-avatar.svg" alt="avatar"
+									<img src="../static/images/cd-avatar.svg" alt="avatar"
 										style="height:24px;width:24px;border-radius:50%;">
 									<span>Tài khoản</span>
 								</a>
@@ -49,43 +69,26 @@
 	<section id="room-wrapped">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-
-				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
-							<div class="room-classname">Classname : {{room.room_name}}</div>
-							<div class="room-subject">Subject : {{room.subject}}</div>
-							<div class="room-teachername">Teacher : {{room.teacher.teacher_name}}</div>
-							<div class="room-code">Code: {{room.room_code}}</div>
+							<div class="room-classname">classname</div>
+							<div class="room-subject">subject</div>
+							<div class="room-teachername">teacher</div>
 						</div>
-						<div class="room-content">
-							<div class="create-room" style="display:inline-block;">
-								<a href="/exam-form">Create Question</a>
-							</div>
-							<div class="create-room" style="display:inline-block;margin-left:20px;">
-								<a href="../templates/createExamination.html">Create Exam</a>
-							</div>
+						<div class="room-content" style="padding-bottom:90px;">
+							<form id="formScore" class="form-score" action="/" method="GET">
+                                <div class="form-Control">
+                                    <div class="student-name">Student</div>
+                                    <div class="student-score">Score</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-
-				</div>
-				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<div class="create-room">
-						<a href="/question-form">Create question</a>
-					</div>
-					<div class="create-room">
-						<a href="/exam-form">Create exam</a>
-					</div>
-				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
 			</div>
 	</section>
-
 </body>
 </html>

@@ -9,7 +9,18 @@
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<title>Classrooms</title>
-
+	<style>
+		.form-Control{
+			margin-top:10px;
+		}
+		.form-Control p, .form-Control label, .form-Control p em{
+			font-size:18px;
+		}
+		#formAnswerQuestion{
+			margin-top:30px;
+			text-align:left;
+		}
+	</style>
 </head>
 
 <body>
@@ -59,8 +70,10 @@
 						</div>
 						<div class="room-content"></div>
 					</div>
-					<form id="formAnswerQuestion" class="form-answer-question" action="/result" method="POST">
-						{% for question in questions.questions | shuffle %}
+						<div class="room-content" style="padding-bottom:90px;">
+							<div>Time left: <span id="timer" style="font-size:18px;color:red;">10:00</span> minutes!</div>
+							<form id="formAnswerQuestion" class="form-answer-question" action="/exam" method="POST">
+								{% for question in questions.questions | shuffle %}
 						<div class="form-Control">
 							<p>Question: <em style="color: red; border: 1px bold;">{{question.question_name}}</em></p>
 						</div>
@@ -68,23 +81,17 @@
 						<div class="form-Control">
 							<input type="radio" id="{{answer.value}}" name="{{question.question_id}}" value={{answer.id}}>
 							<label for="{{answer.value}}">{{answer.value}}</label><br>
+								</div>
+								{% endfor %}
+								{% endfor %}
+								<button type="submit" style="float:right; font-size18px; padding:15px 30px;cursor: pointer;">Done</button>
+							</form>
 						</div>
-						{% endfor %}
-						{% endfor %}
-						<button type="submit">Done</button>
-					</form>
+					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
 			</div>
 	</section>
 </body>
-<!--<style>
-	.form-Control {
-		margin-top: 10px;
-	}
-	form{
-		margin-top:20px;
-	}
-</style>-->
-
+	<script src='../static/javascript/countdown.js'></script>
 </html>
