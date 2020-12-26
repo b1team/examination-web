@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="../static/css/grid.css">
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
+	<link rel="stylesheet" href="../static/css/editormd.css" />
+	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
 	<title>Classrooms</title>
 
 </head>
@@ -61,25 +63,74 @@
 							<div class="room-code">Code: {{room.room_code}}</div>
 						</div>
 						<div class="room-content">
-							<div class="create-room" style="display:inline-block;">
+							<!--<div class="create-room" style="display:inline-block;">
 								<a href="/exam-form">Create Question</a>
-							</div>
+							</div>-->
 							<div class="create-room" style="display:inline-block;margin-left:20px;">
-								<a href="../templates/createExamination.html">Create Exam</a>
+								<a href="/form-exam">Create Exam</a>
 							</div>
 						</div>
 					</div>
+					<form id="formQuestion" class="form-create-question" name="formQuestion" action="/question" method="POST" >
+						<div class="form-Control">
+							<label for="question" style="font-size:16px;">Question:</label>
+							<div id="test-editor" style="margin-top:20px;">
+								<textarea style="display:none;" id="question" name="question"></textarea>
+							</div>
+							<small>Error message</small>
+						</div>
+						<div class="form-Control">
+							<label for="answer">A: </label>
+							<input type="text" id="answer" name="answerA" placeholder="Enter answer" />
+							<input type="radio" id="answerKey" name="key" placeholder="Correct answer" value="0"/>
+							<small>Error message</small>
+						</div>
+						<div class="form-Control">
+							<label for="answer">B: </label>
+							<input type="text" id="answer" name="answerB" placeholder="Enter answer" />
+							<input type="radio" id="answerKey" name="key" placeholder="" value="1" />
+							<small>Error message</small>
+						</div>
+						<div class="form-Control">
+							<label for="answer">C :</label>
+							<input type="text" id="answer" name="answerC" placeholder="Enter answer" />
+							<input type="radio" id="answerKey" name="key" placeholder="" value="2"/>
+							<small>Error message</small>
+						</div>
+						<div class="form-Control">
+							<label for="answer">D :</label>
+							<input type="text" id="answer" name="answerD" placeholder="Enter answer" />
+							<input type="radio" id="answerKey" name="key" placeholder="" value="3"/><!--AnswerA-->
+							<small>Error message</small>
+						</div>
+						<div class="form-Control">
+							<label for="level" style="font-size:16px;">Choose a level question:</label>
+							<select name="level" id="level">
+								<option value="1">Easy</option>
+								<option value="2">Medium</option>
+								<option value="3">Hard</option>
+							</select>
+						</div>
+						<button type="submit">Create</button>
+					</form>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-
-				</div>
-				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 			</div>
 	</section>
 
 </body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="../static/javascript/editormd.min.js"></script>
+<script src='../static/javascript/validate_create_question.js'></script>
+<!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+            width: "100%",
+            height: "250px",
+            path: "../static/lib/"
+        });
+    });
+</script>
 </html>

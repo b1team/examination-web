@@ -50,3 +50,12 @@
   outline:none;
   border-radius:10px;
 }
+#formCreateRoom .form-Control {width:100%;}
+#formCreateRoom .form-Control label {
+    width:30%;
+    display:inline-block;
+}
+#formCreateRoom .form-Control input {
+    width:45%;
+    display:inline-block;
+}

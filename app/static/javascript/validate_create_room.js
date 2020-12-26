@@ -21,8 +21,7 @@ function getFieldName(input) {
 }
 
 function checkClassname(input){
-    var vali_classname = document.forms["formCreateRoom"]["classname"].value;
-    if(vali_classname == "" || vali_classname == null){
+    if(input.value == "" || input.value == null){
       showError(
         input,
         `${getFieldName(input)} must be empty !!!`
@@ -30,15 +29,14 @@ function checkClassname(input){
     }
 }
 function checkSubject(input){
-  var vali_subject = document.forms["formCreateRoom"]["subject"].value;
-  if(vali_subject == "" || vali_subject == null){
+  if(input.value == "" || input.value == null){
     showError(
       input,
       `${getFieldName(input)} must be empty !!!`
     );
   }
 }
-form.addEventListener('submit', function() {
+form_create_room.addEventListener('submit', function() {
   checkClassname(classname);
   checkSubject(subject);
 });

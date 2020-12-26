@@ -68,22 +68,17 @@
 								</div>
 								<div class="form-Control">
 									<label for="answer">Easy: </label>
-									<input type="text" id="num" name="num_easy" placeholder="Enter number of question!" />
+									<input type="text" id="num_easy" name="num_easy" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Medium: </label>
-									<input type="text" id="num" name="num_med" placeholder="Enter number of question!" />
+									<input type="text" id="num_med" name="num_med" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Hard: </label>
-									<input type="text" id="num" name="num_hard" placeholder="Enter number of question!" />
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Genius: </label>
-									<input type="text" id="num" name="num_geni" placeholder="Enter number of question!" />
+									<input type="text" id="num_hard" name="num_hard" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<button type="submit">Create</button>
@@ -99,25 +94,5 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
-<script src='../static/javascript/validate_create_exam.js'></script>
-<!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
-<script type="text/javascript">
-    $(function() {
-        var editor = editormd("test-editor", {
-            width: "80%",
-            height: "250px",
-            path: "../static/lib/"
-        });
-    });
-</script>
-<!--
-<script>
-config.extraPlugins = 'eqneditor';
-CKEDITOR.plugins.addExternal( 'eqneditor', '/ckeditor/plugins/eqneditor', 'plugin.js' );
-
-// extraPlugins needs to be set too.
-CKEDITOR.replace( 'editor1', {
-        extraPlugins: 'eqneditor'
-} );           
-</script>-->
+<script src='../static/javascript/validate_create_question.js'></script>
 </html>

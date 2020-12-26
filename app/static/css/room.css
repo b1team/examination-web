@@ -94,7 +94,7 @@ a{text-decoration:none;color:white;}
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	padding:20px 0px;
-	color:#227bb1;
+	color:#0f0f0f;
     padding:20px 50px;
 }
 #room-wrapped .room-content{
@@ -114,17 +114,17 @@ a{text-decoration:none;color:white;}
 .room-code{
     margin-top:15px;
 }
-#room-wrapped .room-content .form-Control {
+#formQuestion .form-Control {
     margin-top:20px;
     font-size:16px;
 }
-#room-wrapped .room-content .form-Control input#answer{
-    width:80%;
+#formQuestion .form-Control input#answer{
+    width:90%;
     display:inline-block;
     height:30px;
     font-size:16px;
 }
-#room-wrapped .room-content button{
+#formQuestion button{
   margin-top:20px;
   padding:10px 25px;
   background:#227bb1;
@@ -132,6 +132,7 @@ a{text-decoration:none;color:white;}
   border:none;
   outline:none;
   border-radius:10px;
+  float:right;
 }
 #formAnswerQuestion button{
   margin-top:20px;
@@ -142,6 +143,15 @@ a{text-decoration:none;color:white;}
   outline:none;
   border-radius:10px;
 }
+#formExam button{
+    margin-top:20px;
+    padding:10px 25px;
+    background:#227bb1;
+    color:#fff;
+    border:none;
+    outline:none;
+    border-radius:10px;
+  }
 #key{
     margin-left:10px;
 }

@@ -28,8 +28,8 @@ def create_question():
     for index, an in enumerate("ABCD", start=0):
         result.append(Answer(id=index, value=question_info.get(f"answer{an}")))
     exam = Storage(
-        ques=question_info.get("question"),
-        answ=result,
+        question=question_info.get("question"),
+        answer=result,
         correct_answer=question_info.get("key"),
         level=question_info.get("level"),
     )
