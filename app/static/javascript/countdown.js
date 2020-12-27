@@ -11,9 +11,9 @@ function timer(time,update,complete) {
 }
 
 timer(
-    10000, // milliseconds
+    100000, // milliseconds
     function(timeleft) { // called every step to update the visible countdown
-        document.getElementById('timer').innerHTML = timeleft+" second(s)";
+        document.getElementById('timer').innerHTML = timeleft+" minutes";
     },
     function() { // what to do after
         alert("STOP!");

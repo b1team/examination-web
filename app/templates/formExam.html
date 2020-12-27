@@ -57,27 +57,27 @@
 								<h1>Examination</h1>
 								<div class="form-Control">
 									<label for="answer">Duration: </label>
-									<input type="text" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
+									<input type="number" min="1" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Number of question: </label>
-									<input type="text" id="num" name="num" placeholder="Enter number of question!" />
+									<input type="number" min="0" id="num" name="num" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Easy: </label>
-									<input type="text" id="num" name="num_easy" placeholder="Enter number of question!" />
+									<input type="number" min="0" id="num" name="num_easy" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Medium: </label>
-									<input type="text" id="num" name="num_med" placeholder="Enter number of question!" />
+									<input type="number" min="0" id="num" name="num_med" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
 									<label for="answer">Hard: </label>
-									<input type="text" id="num" name="num_hard" placeholder="Enter number of question!" />
+									<input type="number" min="0" id="num" name="num_hard" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<button type="submit">Create</button>

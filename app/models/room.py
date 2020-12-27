@@ -16,6 +16,6 @@ class Room(db.Document):
     room_id = db.ObjectIdField(db_field="_id")
     room_name = db.StringField(required=True)
     teacher = db.EmbeddedDocumentField(Teacher)
-    subject = db.StringField(required=True)
+    subject = db.DynamicField(required=True)
     room_code = db.StringField(required=True)
     student = ListField(db.EmbeddedDocumentField(Student))

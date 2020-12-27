@@ -11,5 +11,5 @@ class Storage(db.Document):
     Id = db.ObjectIdField(db_field="_id")
     question = db.StringField(required=True)
     answer = ListField(db.EmbeddedDocumentField(Answer))
-    correct_answer = db.IntField()
-    level = db.StringField(required=True)
+    correct_answer = db.IntField(required=True)
+    level = db.IntField(required=True)

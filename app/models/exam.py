@@ -1,24 +1,22 @@
-from app.models.room import Student
-from app.models.storage import Answer
 from app.db.database import db
-from mongoengine.fields import ListField
+from mongoengine.fields import DateTimeField, ListField
 
 
-class Answer(db.EmbeddedDocument):
-    id = db.IntField(db_field="id")
-    value = db.StringField()
+class Result(db.EmbeddedDocument):
+    question_id = db.ObjectIdField()
+    answer_id = db.IntField(db_field="answer_id")
 
 
 class StudentAnswer(db.EmbeddedDocument):
     student_id = db.ObjectIdField()
-    student_name = db.StringField()
-    answers = ListField(db.EmbeddedDocumentField(Answer))
+    answers = ListField(db.EmbeddedDocumentField(Result), required=False)
     total_point = db.FloatField()
 
 
 class Question(db.EmbeddedDocument):
     question_id = db.ObjectIdField()
     question_name = db.StringField()
+    level = db.IntField()
     answer = ListField()
     correct_answer = db.IntField()
 
@@ -28,4 +26,6 @@ class Exam(db.Document):
     room_id = db.ObjectIdField(db_field="room_id")
     duration = db.IntField()
     questions = ListField(db.EmbeddedDocumentField(Question))
-    students = ListField()
+    students = ListField(
+        db.EmbeddedDocumentField(StudentAnswer), required=False
+    )
