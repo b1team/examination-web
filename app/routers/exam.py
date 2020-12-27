@@ -15,14 +15,6 @@ from random import choices, shuffle
 import itertools
 
 
-@user.route("/question-form", methods=["GET"])
-def show_question_form():
-    if session.get("user", None):
-        if session["user"].get("classify") == "teacher":
-            return render_template("createQuestion.html")
-    return redirect(url_for("auth.login"))
-
-
 @user.route("/exam-form", methods=["GET"])
 def show_exam_form():
     if session.get("user", None):
