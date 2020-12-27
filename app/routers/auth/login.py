@@ -14,7 +14,7 @@ from app.routers.auth import (
 @auth.route("/login", methods=["GET"])
 def login_form():
     if session.get("user", None):
-        return redirect(url_for(f"user.user_form"))
+        return redirect(url_for("home.home"))
     return render_template("login.html")
 
 
@@ -27,8 +27,9 @@ def login():
         session["user"] = {
             "username": user.username,
             "classify": user.classify,
+            "user_id": str(user.user_id),
         }
-        return redirect(url_for(f"user.user_form"))
+        return redirect(url_for(f"user.{user.classify}_form"))
 
     flash("username or password is incorrect")
     return redirect(request.url)

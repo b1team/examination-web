@@ -1,6 +1,7 @@
 {% extends "base_auth.html" %}
 {% block style %} <link href="../static/css/register.css" rel="stylesheet"> {% endblock %}
 {% block auth %} <button><a href="/login">đăng nhập</a></button> {% endblock %}
+
 {% block register %}
     <section id="form-wrapped">
         <div class="container">
@@ -8,7 +9,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div id="register-wrapped" >
-						<form id="formRegister" class="form-register" action="/register" method="POST">
+						<form id="formRegister" class="form-register" action="/register" method="POST" >
 						  <h2>Register Form</h2>
 						  <div class="form-Control">
 							<label for="username">Username</label>
@@ -46,7 +47,7 @@
 						  <div class="form-Control">
 							<label for="classify">Classify</label>
 							<input type="radio" id="classify" name="classify" value="student" style="height: 20px;width:20px;display:inline-block;"> Học sinh
-                            <input type="radio" id="classify" name="classify" value="teacher" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Giảng viên
+							<input type="radio" id="classify" name="classify" value="teacher" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Giảng viên
 							<small>Error message</small>
 						  </div>
 						  <button type="submit">Submit</button>

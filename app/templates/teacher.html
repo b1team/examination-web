@@ -1,43 +1,62 @@
 {% extends "user.html" %}
 {% block title %} Teacher BeSmart {% endblock %}
 {% block teacher_ul %}
-		  <ul class="cd-side__list js-cd-side__list">
-			<li class="cd-side__label"><span>Hành động</span></li>
-			<li class="cd-side__btn"><button class="reset"><a href="/room" target="blank" style="text-decoration:none;color:white;padding:10px 60px;">Tạo lớp</a></button></li>
-		  </ul>
+<ul class="cd-side__list js-cd-side__list">
+	<li class="cd-side__label"><span>Hành động</span></li>
+	<li class="cd-side__btn">
+		<button id="myBtn">Tạo lớp</button></li>
+</ul>
 {% endblock %}
 {% block teacher %}
-		<div class="cd-content-wrapper">
-		  <div class="text-component text-center">
-			<h2>Chào mừng {{username}} tới dịch vụ của chúng tôi</h2>
-			<div class="getAllRoom">
-				<div class="row">
-					<div class="col-lg-3">
+<div class="cd-content-wrapper">
+	<div class="text-component text-center">
+		<h2>Chào mừng {{username}}</h2>
+		<div class="getAllRoom">
+			<div class="row">
+				{% for room in rooms %}
+				<div class="col-lg-3">
+					<a href="/room/{{room.room_id}}" target="blank">
 						<div class="room-components">
-							<div class="room-title">1</div>
-							<div class="room-content">a</div>
+							<div class="room-title">
+								<div class="room-classname">{{room.room_name}}</div>
+								<div class="room-subject">{{room.subject}}</div>
+							</div>
+							<div class="room-content"></div>
 						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="room-components">
-							<div class="room-title">1</div>
-							<div class="room-content">a</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="room-components">
-							<div class="room-title">1</div>
-							<div class="room-content">a</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="room-components">
-							<div class="room-title">1</div>
-							<div class="room-content">a</div>
-						</div>
-					</div>
+					</a>
 				</div>
+				{% endfor %}
 			</div>
-		  </div>
 		</div>
+	</div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+		<div id="create-room-wrapped">
+			<form id="formCreateRoom" class="form-create-room" name="formCreateRoom" action="/room" method="POST">
+				<span class="close">&times;</span>
+				<h2>Create Room Form</h2>
+				<div class="form-Control">
+					<label for="username">Teacher</label>
+					<input type="text" id="username" name="username" placeholder="{{username}}" disabled />
+				</div>
+				<div class="form-Control">
+					<label for="classname">Classname</label>
+					<input type="text" id="classname" name="classname" placeholder="Enter classname" />
+					<small>Error message</small>
+				</div>
+				<div class="form-Control">
+					<label for="subject">Subject</label>
+					<input type="text" id="subject" name="subject" placeholder="Enter subject" />
+					<small>Error message</small>
+				</div>
+				<button type="submit">Create</button>
+			</form>
+		</div>
+	</div>
+
+</div>
 {% endblock %}

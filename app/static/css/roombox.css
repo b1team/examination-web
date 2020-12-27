@@ -1,16 +1,24 @@
 .room-components{
     border:none;
     border-radius: 15px;
-	background: #461A42;
+	background:  #227bb1;
     color:#f0f0f0;
-    margin-top:25px;
+	margin-top:25px;
+	text-decoration: none;
 }
 .room-components .room-title{
     display:block;
 	width:100%;
 	padding:10px 0px;
 }
-
+.room-components .room-title .room-classname{
+	display:block;
+	font-size:18px;
+}
+.room-components .room-title .room-teachername, .room-components .room-title .room-subject{
+    display:block;
+	font-size:14px;
+}
 .room-components .room-content{
     display:block;
     width:100%;
@@ -19,4 +27,7 @@
 	border-bottom-right-radius: 15px;
 	padding:20px 0px;
 	color:#0f0f0f;
+}
+a{
+	text-decoration: none;
 }
