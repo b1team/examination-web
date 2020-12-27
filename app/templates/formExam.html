@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	<link rel="stylesheet" href="../static/css/grid.css">
+	<link rel="stylesheet" href="../static/css/room.css">
+	<link rel="stylesheet" href="../static/css/popup.css">
+	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
+	<title>Classrooms</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="header-desktop hidden-xs hidden-sm">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="logo-wrapper">
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png"
+									style="height:100px; width:120px;display:block;" alt="Logo"></a>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a href="#0">
+									<img src="../static/images/cd-avatar.svg" alt="avatar"
+										style="height:24px;width:24px;border-radius:50%;">
+									<span>Tài khoản</span>
+								</a>
+							</button>
+							<div class="dropdown-content">
+								<a href="#0">Tài khoản của tôi</a>
+								<a href="#0">Thay đổi thông tin</a>
+								<a href="/logout">Đăng xuất</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-mobile hidden-lg hidden-md">
+				<div class="row"></div>
+			</div>
+		</div>
+	</header>
+	<section id="room-wrapped">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<div class="room-component-wrapped">
+						<div class="room-content">
+							<form id="formExam" class="form-exam" name="formExam" action="/exam" method="POST" >
+								<h1>Examination</h1>
+								<div class="form-Control">
+									<label for="answer">Duration: </label>
+									<input type="number" min="1" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Number of question: </label>
+									<input type="number" min="0" id="num" name="num" placeholder="Enter number of question!" />
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Easy: </label>
+									<input type="number" min="0" id="num" name="num_easy" placeholder="Enter number of question!" />
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Medium: </label>
+									<input type="number" min="0" id="num" name="num_med" placeholder="Enter number of question!" />
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Hard: </label>
+									<input type="number" min="0" id="num" name="num_hard" placeholder="Enter number of question!" />
+									<small>Error message</small>
+								</div>
+								<button type="submit">Create</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>
+			</div>
+	</section>
+
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="../static/javascript/editormd.min.js"></script>
+<script src='../static/javascript/validate_create_exam.js'></script>
+<!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+            width: "80%",
+            height: "250px",
+            path: "../static/lib/"
+        });
+    });
+</script>
+<!--
+<script>
+config.extraPlugins = 'eqneditor';
+CKEDITOR.plugins.addExternal( 'eqneditor', '/ckeditor/plugins/eqneditor', 'plugin.js' );
+
+// extraPlugins needs to be set too.
+CKEDITOR.replace( 'editor1', {
+        extraPlugins: 'eqneditor'
+} );           
+</script>-->
+</html>

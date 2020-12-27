@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	<link rel="stylesheet" href="../static/css/teacher.css">
+	<link rel="stylesheet" href="../static/css/popup.css">
+	<link rel="stylesheet" href="../static/css/roombox.css">
+	<link rel="stylesheet" href="../static/css/grid.css">
+	<link rel="stylesheet" href="../static/css/model.css">
+	<link rel="stylesheet" href="../static/css/validate_create_room.css">
+	<title>{% block title %}{% endblock %}</title>
+	
+</head>
+
+<body>
+	<!--Phần này code chung -->
+	<header class="cd-main-header js-cd-main-header" style="background-color: #227bb1;">
+		<div class="cd-logo-wrapper">
+			<a href="/" class="cd-logo"><img src="../static/images/logo1.png" style="height:120px; width:120px;"
+					alt="Logo"></a>
+		</div>
+
+		<button class="reset cd-nav-trigger js-cd-nav-trigger" aria-label="Toggle menu"><span></span></button>
+
+		<ul class="cd-nav__list js-cd-nav__list">
+			<li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
+				<a href="#0">
+					<img src="../static/images/cd-avatar.svg" alt="avatar">
+					<span>Tài khoản</span>
+				</a>
+
+				<ul class="cd-nav__sub-list" style="background-color:#227bb1;">
+					<li class="cd-nav__sub-item"><a href="#0">Tài khoản của tôi</a></li>
+					<li class="cd-nav__sub-item"><a href="#0">Thay đổi thông tin</a></li>
+					<li class="cd-nav__sub-item"><a href="/logout">Đăng xuất</a></li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<!-- .cd-main-header -->
+
+	<main class="cd-main-content">
+		<nav class="cd-side-nav js-cd-side-nav" style="background-color: #227bb1;">
+			<ul class="cd-side__list js-cd-side__list">
+				<li class="cd-side__label"><span>Main</span></li>
+				<li
+					class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children cd-side__item--selected">
+					<a href="#0">Người dùng</a>
+
+					<ul class="cd-side__sub-list" style="background-color: #227bb1;">
+						<li class="cd-side__sub-item"><a href="#0">Thông tin cá nhân</a></li>
+						<li class="cd-side__sub-item"><a href="#0">Thay đổi thông tin cá nhân</a></li>
+					</ul>
+				</li>
+			</ul>
+
+			<ul class="cd-side__list js-cd-side__list">
+				<li class="cd-side__label"><span>Secondary</span></li>
+				<li class="cd-side__item cd-side__item--has-children cd-side__item--images js-cd-item--has-children">
+					<a href="#0">Ảnh</a>
+
+					<ul class="cd-side__sub-list" style="background-color: #227bb1;">
+						<li class="cd-side__sub-item"><a href="#0">Ảnh cá nhân</a></li>
+						<li class="cd-side__sub-item"><a href="#0">Chỉnh ảnh cá nhân</a></li>
+					</ul>
+				</li>
+			</ul>
+			{% block teacher_ul %}{% endblock %}
+			{% block student_ul %}{% endblock %}
+		</nav>
+		{% block teacher %}{% endblock %}
+		{% block room %}{% endblock %}
+		{% block student %}{% endblock %}
+	</main>
+	<script src="../static/javascript/util.js"></script> <!-- util functions included in the CodyHouse framework -->
+	<script src="../static/javascript/teacher-aim.js"></script>
+	<script src="../static/javascript/main-teacher.js"></script>
+	<script src='../static/javascript/model.js'></script>
+	<script src='../static/javascript/validate_create_room.js'></script>
+</body>
+
+</html>

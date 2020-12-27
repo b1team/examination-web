@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	<link rel="stylesheet" href="../static/css/grid.css">
+	<link rel="stylesheet" href="../static/css/room.css">
+	<link rel="stylesheet" href="../static/css/popup.css">
+	<title>Classrooms</title>
+	<style>
+		.form-Control{
+            margin-top:10px;
+            width:100%;
+            text-align:center;
+        }
+        .form-Control .student-name{
+            width:50%;
+            display:inline-block;
+            font-size:20px;
+        }
+        .form-Control .student-score{
+            width:49%;
+            display:inline-block;
+            font-size:20px;
+        }
+		#formScore{
+			margin-top:30px;
+			text-align:left;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="header-desktop hidden-xs hidden-sm">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="logo-wrapper">
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png"
+									style="height:100px; width:120px;display:block;" alt="Logo"></a>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+						<div class="dropdown">
+							<button class="dropbtn">
+								<a href="#0">
+									<img src="../static/images/cd-avatar.svg" alt="avatar"
+										style="height:24px;width:24px;border-radius:50%;">
+									<span>Tài khoản</span>
+								</a>
+							</button>
+							<div class="dropdown-content">
+								<a href="#0">Tài khoản của tôi</a>
+								<a href="#0">Thay đổi thông tin</a>
+								<a href="/logout">Đăng xuất</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-mobile hidden-lg hidden-md">
+				<div class="row"></div>
+			</div>
+		</div>
+	</header>
+	<section id="room-wrapped">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<div class="room-component-wrapped">
+						<div class="room-title">
+							<div class="room-classname" style="text-align: center;">Kết quả</div>
+						</div>
+						<div class="room-content" style="padding-bottom:90px;">
+							<form id="formScore" class="form-score">
+                                <div class="form-Control">
+                                    <div class="student-score">Score: <em style="color: red; font-size: larger;">{{score}}</em></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
+			</div>
+	</section>
+</body>
+</html>

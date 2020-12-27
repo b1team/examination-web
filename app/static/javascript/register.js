@@ -1,5 +1,5 @@
 // validate register 
-const form = document.getElementById('form-register');
+const form = document.getElementById('formRegister');
 const usernameField = document.getElementById('username');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
@@ -70,8 +70,8 @@ function checkEmail(input){
     }
 }
 // Event listeners
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
+form.addEventListener('submit', function() {
+  //e.preventDefault();
   checkRequired([usernameField, password, email, password2, sex, classify]);
   checkLength(usernameField, 6, 15);
   checkLength(password, 6, 25);
