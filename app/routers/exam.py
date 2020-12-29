@@ -19,12 +19,25 @@ import itertools
 def show_exam_form():
     if session.get("user", None):
         if session["user"].get("classify") == "teacher":
-            return render_template("formExam.html")
+            teacher_id = ObjectId(session["user"].get("user_id"))
+            ques_of_teacher = Storage.objects(teacher_id=teacher_id)
+            all_ques = ques_of_teacher.count()
+            easy_ques = ques_of_teacher.filter(level=1).count()
+            medium_ques = ques_of_teacher.filter(level=2).count()
+            hard_ques = ques_of_teacher.filter(level=3).count()
+            return render_template(
+                "formExam.html",
+                all_ques=all_ques,
+                easy_ques=easy_ques,
+                medium_ques=medium_ques,
+                hard_ques=hard_ques,
+            )
     return redirect(url_for("auth.login"))
 
 
 def random_ques_level(level: int, num_of_ques: int):
-    storage = Storage.objects()
+    teacher_id = ObjectId(session["user"].get("user_id"))
+    storage = Storage.objects(teacher_id=teacher_id)
     questions = list(storage.filter(level=level))
     shuffle(questions)
     return choices(questions, k=int(num_of_ques))
@@ -33,7 +46,6 @@ def random_ques_level(level: int, num_of_ques: int):
 @user.route("/exam", methods=["POST"])
 def create_exam():
     exam_info = request.form.to_dict()
-
     number_of_ques = exam_info.get("num")
 
     easy_ques = random_ques_level(1, exam_info.get("num_easy"))
