@@ -10,19 +10,24 @@
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<title>Classrooms</title>
 	<style>
-		.form-Control {
-			margin-top: 10px;
-		}
-
-		.form-Control p,
-		.form-Control label,
-		.form-Control p em {
-			font-size: 18px;
-		}
-
-		#formAnswerQuestion {
-			margin-top: 30px;
-			text-align: left;
+		.form-Control{
+            margin-top:10px;
+            width:100%;
+            text-align:center;
+        }
+        .form-Control .student-name{
+            width:50%;
+            display:inline-block;
+            font-size:20px;
+        }
+        .form-Control .student-score{
+            width:49%;
+            display:inline-block;
+            font-size:20px;
+        }
+		#formScore{
+			margin-top:30px;
+			text-align:left;
 		}
 	</style>
 </head>
@@ -34,7 +39,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-3">
 						<div class="logo-wrapper">
-							<a href="/" class="cd-logo"><img src="../static/images/logo1.png"
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png"
 									style="height:100px; width:120px;display:block;" alt="Logo"></a>
 						</div>
 					</div>
@@ -68,36 +73,26 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
-							<div class="room-classname">classname: {{room.room_name}}</div>
-							<div class="room-subject">subject: {{room.subject}}</div>
-							<div class="room-teachername">teacher: {{room.teacher.teacher_name}}</div>
+							<div class="room-classname" style="text-align: center;">Kết quả</div>
 						</div>
 						<div class="room-content" style="padding-bottom:90px;">
-							<div style="font-size:20px;color:red;float:right;">Time left: <span id="timer" style="font-size:20px;color:red;">10:00</span></div>
-							<form id="formAnswerQuestion" class="form-answer-question" action="/result" method="POST">
-								{% for question in questions.questions | shuffle %}
-								<div class="form-Control">
-									<p>Question: <em
-											style="color: red; border: 1px bold;font-size:20px;">{{question.question_name}}</em></p>
-								</div>
-								{% for answer in question.answer | shuffle %}
-								<div class="form-Control">
-									<input type="radio" id="{{answer.value}}" name="{{question.question_id}}"
-										value={{answer.id}}>
-									<label for="{{answer.value}}">{{answer.value}}</label><br>
-								</div>
-								{% endfor %}
-								{% endfor %}
-								<button type="submit"
-									style="float:right; font-size:18px; padding:15px 30px;cursor: pointer;">Done</button>
+							<form id="formRank" class="form-srank">
+                                <div class="form-Control">
+                                    <div class="student-name">Name</div>
+                                    <div class="student-score">Score</div>
+                                </div>
+                                {% render form Conrtrol nay %}
+                                <div class="form-Control">
+                                    <div class="student-name">Tung</div>
+                                    <div class="student-score">10</div>
+                                </div>
+                                {% endfor %}
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
 			</div>
 	</section>
 </body>
-<script src='../static/javascript/countdown.js'></script>
-
 </html>
