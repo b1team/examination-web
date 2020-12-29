@@ -18,8 +18,8 @@
   .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
     width: 40%;
     text-align: center;
   }
@@ -40,8 +40,17 @@
   }
 #myModal .modal-content .form-Control {
   margin-top:25px;
+  width:100%;
 }
-#myModal .modal-content button {
+#myModal .modal-content .form-Control label{
+  width:25%;
+  display:inline-block;
+}
+#myModal .modal-content .form-Control input{
+  width:55%;
+  display:inline-block;
+}
+#myModal .modal-content #btSubmit {
   margin-top:20px;
   padding:10px 25px;
   background: #227bb1;
@@ -49,4 +58,5 @@
   border:none;
   outline:none;
   border-radius:10px;
+  font-size:18px;
 }

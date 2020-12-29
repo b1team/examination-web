@@ -52,7 +52,7 @@ function checkAnswerKey(input) {
   }
 }
 // Event listeners
-form.addEventListener('submit', function () {
+form_create_room.addEventListener('submit', function () {
   checkEditor(editor);
   checkAnswer(answer);
   checkAnswerKey(answer_key);
