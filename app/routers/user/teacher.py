@@ -29,6 +29,7 @@ def create_question():
         result.append(Answer(id=index, value=question_info.get(f"answer{an}")))
     exam = Storage(
         question=question_info.get("question"),
+        teacher_id=session["user"].get("user_id"),
         answer=result,
         correct_answer=question_info.get("key"),
         level=question_info.get("level"),
