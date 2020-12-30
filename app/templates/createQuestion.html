@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../static/css/grid.css">
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
+	<link rel="stylesheet" href="../static/css/editormd.css" />
 	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
 	<title>Classrooms</title>
 </head>
@@ -19,7 +20,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-3">
 						<div class="logo-wrapper">
-							<a href="/" class="cd-logo"><img src="../static/images/logo1.png"
+							<a href="index.html" class="cd-logo"><img src="../static/images/logo1.png"
 									style="height:100px; width:120px;display:block;" alt="Logo"></a>
 						</div>
 					</div>
@@ -53,72 +54,50 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-content">
-							<form id="formExam" class="form-exam" name="formExam" action="/exam/{{room_id}}" method="POST" >
+							<form id="formQuestion" class="form-create-question" name="formQuestion" action="/question/{{room.room_id}}" method="POST" >
+								<h2>Form Question</h2>
 								<div class="form-Control">
-									<label for="answer">Total question created: </label>
-									<input type="text" value="{{all_ques}}" disabled/>
+									<label for="question">Question</label>
+									<div id="test-editor">
+										<textarea style="display:none;" id="question" name="question"></textarea>
+									</div>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Total easy question: </label>
-									<input type="text" value="{{easy_ques}}" disabled/>
+									<label for="answer">A: </label>
+									<input type="text" id="answer" name="answerA" placeholder="Enter answer" />
+									<input type="radio" id="answerA" name="key" placeholder="Correct answer" value="0"/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Total medium question: </label>
-									<input type="text" value="{{medium_ques}}" disabled/>
+									<label for="answer">B: </label>
+									<input type="text" id="answer" name="answerB" placeholder="Enter answer" />
+									<input type="radio" id="answerB" name="key" placeholder="" value="1" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Total hard question: </label>
-									<input type="text" value="{{hard_ques}}" disabled/>
-									<small>Error message</small>
-								</div>
-								<h1 style="font-size:18px;margin:20px;">Create exam base on storage question</h1>
-								<div class="form-Control">
-									<label for="answer">Tên bài thi: </label>
-									<input type="text" id="exam_name" name="exam_name" placeholder="Nhập Tên Bài Thi" />
+									<label for="answer">C :</label>
+									<input type="text" id="answer" name="answerC" placeholder="Enter answer" />
+									<input type="radio" id="answerC" name="key" placeholder="" value="2"/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Duration: </label>
-									<input type="number" min="1" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
+									<label for="answer">D :</label>
+									<input type="text" id="answer" name="answerD" placeholder="Enter answer" />
+									<input type="radio" id="answerD" name="key" placeholder="" value="3"/><!--AnswerA-->
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Number of question: </label>
-									<input type="number" min="0" id="num" name="num" placeholder="Enter number of question!" />
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Easy: </label>
-									<input type="number" min="0" id="num" name="num_easy" placeholder="Enter number of question!" />
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Medium: </label>
-									<input type="number" min="0" id="num" name="num_med" placeholder="Enter number of question!" />
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Hard: </label>
-									<input type="number" min="0" id="num" name="num_hard" placeholder="Enter number of question!" />
-									<small>Error message</small>
+									<label for="level">Choose a level question:</label>
+									<select name="level" id="level">
+										<option value="1">Easy</option>
+										<option value="2">Medium</option>
+										<option value="3">Hard</option>
+									</select>
 								</div>
 								<button type="submit">Create</button>
 							</form>
 						</div>
-						{% with messages = get_flashed_messages(with_categories=true) %}
-							{% if messages %}
-								{% for category, message in messages %}
-								<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-								<script>
-									var message = "{{ message | safe }}";
-									swal("{{category}}", "{{message}}", "{{category}}");
-									</script>
-								{% endfor %}
-							{% endif %}
-						{% endwith %}
 					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>
@@ -130,7 +109,6 @@
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
 <script src='../static/javascript/validate_create_exam.js'></script>
-<script src="../static/javascript/disabled.js"></script>
 <!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
 <script type="text/javascript">
     $(function() {
@@ -141,14 +119,4 @@
         });
     });
 </script>
-<!--
-<script>
-config.extraPlugins = 'eqneditor';
-CKEDITOR.plugins.addExternal( 'eqneditor', '/ckeditor/plugins/eqneditor', 'plugin.js' );
-
-// extraPlugins needs to be set too.
-CKEDITOR.replace( 'editor1', {
-        extraPlugins: 'eqneditor'
-} );           
-</script>-->
-</html>
+</html> 

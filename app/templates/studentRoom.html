@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -61,18 +61,17 @@
 							<div class="room-classname">Classname : {{room.room_name}}</div>
 							<div class="room-subject">Subject : {{room.subject.subject_name.title()}}</div>
 							<div class="room-teachername">Teacher : {{room.teacher.teacher_name}}</div>
-							<div class="room-code">Code: {{room.room_code}}</div>
 						</div>
 						<div class="room-content">
 							<div class="getAllRoom">
 								<div class="row">
 									{% for exam in exams %}
 									<div class="col-lg-3">
-										<a href="/result?rid={{room.room_id}}&eid={{exam.exam_id}}">
+										<a href="/exam?rid={{room.room_id}}&eid={{exam.exam_id}}">
 											<div class="room-components">
 												<div class="room-title" style="background-color: darkcyan;">
 													<div class="room-classname" style="font-size: medium;">{{exam.exam_name.title()}}</div>
-													<div class="room-subject" style="font-size: small; text-align: left;"> Thời gian tạo: {{exam.create_at.strftime("%d/%m/%Y %H:%M:%S")}}</div>
+													<div class="room-subject" style="font-size: small; text-align: left;"> Thời gian làm bài: {{exam.duration}} phút</div>
 												</div>
 											</div>
 										</a>
@@ -83,12 +82,6 @@
 						</div>
 						
 					</div>
-				</div>
-				<div class="create-room" style="display:inline-block;margin-left:20px;">
-					<a href="/create-exam/{{room.room_id}}">Create Exam</a>
-				</div>
-				<div class="create-room" style="display:inline-block;margin-left:20px;">
-					<a href="/question/{{room.room_id}}">Create question</a>
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 
@@ -104,7 +97,6 @@
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
 <script src='../static/javascript/validate_create_exam.js'></script>
-<script src='../static/javascript/disabled.js'></script>
 <!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
 <script type="text/javascript">
     $(function() {
