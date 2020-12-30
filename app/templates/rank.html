@@ -78,13 +78,13 @@
 						<div class="room-content" style="padding-bottom:90px;">
 							<form id="formRank" class="form-srank">
                                 <div class="form-Control">
-                                    <div class="student-name">Name</div>
-                                    <div class="student-score">Score</div>
+                                    <div class="student-name">Tên</div>
+                                    <div class="student-score">Điểm</div>
                                 </div>
-                                {% render form Conrtrol nay %}
+                                {% for student in result %}
                                 <div class="form-Control">
-                                    <div class="student-name">Tung</div>
-                                    <div class="student-score">10</div>
+                                    <div class="student-name"><em style="color: black; font-size: medium;">{{student.get("student_name")}}</em></div>
+                                    <div class="student-score"><em style="color: red; font-size: medium;">{{student.get("total_point")}}</em></div>
                                 </div>
                                 {% endfor %}
 							</form>

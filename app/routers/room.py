@@ -1,3 +1,5 @@
+from app.models.exam import Exam
+from app.models.subject import Subject
 from app.routers.user import (
     user,
     request,
@@ -8,7 +10,7 @@ from app.routers.user import (
 )
 from random import choice, shuffle
 import string
-from app.models.room import Room, Teacher, Student
+from app.models.room import Room, Teacher, Student, TeacherSubject
 from bson import ObjectId
 
 
@@ -16,10 +18,11 @@ from bson import ObjectId
 def room_form(room_id=None):
     try:
         room = Room.objects(room_id=room_id).first()
+        exams = Exam.objects(room_id=room_id).only("create_at", "exam_name")
         if room:
             if session.get("user", None):
                 if session["user"].get("classify") == "teacher":
-                    return render_template("room.html", room=room)
+                    return render_template("room.html", room=room, exams=exams)
             return redirect(url_for("home.home"))
     except Exception:
         return redirect(url_for("user.error"))
@@ -39,14 +42,21 @@ def random_code():
 def create_room():
     room_info = request.form.to_dict()
     room_code = random_code()
-
+    subject = Subject(
+        subject_name=room_info.get("subject").strip().lower(),
+        teacher_id=ObjectId(session["user"].get("user_id")),
+    )
+    subject.save()
     teacher = Teacher(
         teacher_id=ObjectId(session["user"].get("user_id")),
         teacher_name=session["user"].get("username"),
     )
+    sj = TeacherSubject(
+        subject_id=subject.id, subject_name=subject.subject_name
+    )
     new_room = Room(
         room_name=room_info.get("classname"),
-        subject=room_info.get("subject"),
+        subject=sj,
         teacher=teacher,
         room_code=room_code,
     )
@@ -59,7 +69,7 @@ def join_room(room_id=None):
     try:
         student_name = session["user"].get("username")
         student_id = session["user"].get("user_id")
-        room = Room.objects.get_or_404(room_id=room_id)
+        room = Room.objects.filter(room_id=room_id).first()
         if room:
             new_student = Student(
                 student_id=student_id, student_name=student_name
@@ -73,5 +83,5 @@ def join_room(room_id=None):
 @user.route("/student/search", methods=["GET"])
 def search():
     room_code = request.args.get("q")
-    room = Room.objects.get_or_404(room_code=room_code)
+    room = Room.objects.filter(room_code=room_code).first()
     return render_template("search.html", room=room)
