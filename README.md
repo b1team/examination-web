@@ -1,6 +1,6 @@
 # EXAMINATION WEB
 
-## SETTING
+## SETTINGS
  ``` cd examination-web ```
  - create .env
 
