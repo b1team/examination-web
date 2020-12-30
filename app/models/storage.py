@@ -10,6 +10,8 @@ class Answer(db.EmbeddedDocument):
 class Storage(db.Document):
     Id = db.ObjectIdField(db_field="_id")
     teacher_id = db.ObjectIdField(db_field="teacher_id")
+    subject_id = db.ObjectIdField(db_field="subject_id")
+    room_id = db.ObjectIdField(db_field="room_id")
     question = db.StringField(required=True)
     answer = ListField(db.EmbeddedDocumentField(Answer))
     correct_answer = db.IntField(required=True)

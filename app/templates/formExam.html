@@ -53,7 +53,7 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-content">
-							<form id="formExam" class="form-exam" name="formExam" action="/exam" method="POST" >
+							<form id="formExam" class="form-exam" name="formExam" action="/exam/{{room_id}}" method="POST" >
 								<div class="form-Control">
 									<label for="answer">Tổng số câu hỏi bạn đã tạo: </label>
 									<input type="text" value="{{all_ques}}" disabled/>
@@ -75,6 +75,11 @@
 									<small>Error message</small>
 								</div>
 								<h1>Tạo bài thi</h1>
+								<div class="form-Control">
+									<label for="answer">Tên bài thi: </label>
+									<input type="text" id="exam_name" name="exam_name" placeholder="Nhập Tên Bài Thi" />
+									<small>Error message</small>
+								</div>
 								<div class="form-Control">
 									<label for="answer">Duration: </label>
 									<input type="number" min="1" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
@@ -103,6 +108,17 @@
 								<button type="submit">Create</button>
 							</form>
 						</div>
+						{% with messages = get_flashed_messages(with_categories=true) %}
+							{% if messages %}
+								{% for category, message in messages %}
+								<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+								<script>
+									var message = "{{ message | safe }}";
+									swal("{{category}}", "{{message}}", "{{category}}");
+									</script>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
 					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-md-1 col-xs-1"></div>

@@ -12,10 +12,15 @@ class Student(db.EmbeddedDocument):
     student_name = db.StringField(required=True)
 
 
+class TeacherSubject(db.EmbeddedDocument):
+    subject_id = db.ObjectIdField()
+    subject_name = db.StringField()
+
+
 class Room(db.Document):
     room_id = db.ObjectIdField(db_field="_id")
     room_name = db.StringField(required=True)
     teacher = db.EmbeddedDocumentField(Teacher)
-    subject = db.DynamicField(required=True)
+    subject = db.EmbeddedDocumentField(TeacherSubject)
     room_code = db.StringField(required=True)
     student = ListField(db.EmbeddedDocumentField(Student))
