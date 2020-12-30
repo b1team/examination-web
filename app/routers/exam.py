@@ -117,9 +117,11 @@ def show_exam_question():
                 user_id = ObjectId(session["user"].get("user_id"))
                 student = Exam.objects(students__student_id=user_id, exam_id=exam_id).only("students__student_id", "students__total_point").first()
                 if student is not None:
-                    return render_template(
-                        "score.html", score=student.students[0].total_point
-                    )
+                    for i in student.students:
+                        if i.student_id == user_id:
+                            return render_template(
+                                "score.html", score=i.total_point
+                            )
                 room = Room.objects(
                     **{"student__student_id": user_id, "room_id": room_id}
                 ).first()
