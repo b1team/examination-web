@@ -1,5 +1,5 @@
 //form validate create room
-const form_create_room = document.getElementById("formQuestion");
+const form_create_question = document.getElementById("formQuestion");
 const editor = document.getElementById("test-editor");
 const answer = document.getElementById("answer");
 const answer_key = document.getElementById("answerKey");
@@ -45,7 +45,7 @@ function checkAnswerKey(input) {
   }
 }
 // Event listeners
-form_create_room.addEventListener('submit', function () {
+form_create_question.addEventListener('submit', function () {
   checkEditor(editor);
   checkAnswer(answer);
   checkAnswerKey(answer_key);

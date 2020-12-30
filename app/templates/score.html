@@ -8,12 +8,15 @@
 	<link rel="stylesheet" href="../static/css/grid.css">
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
+	<link rel="stylesheet" href="../static/css/circle.css">
 	<title>Classrooms</title>
 	<style>
+		#room-wrapped {
+			margin-bottom: 40px;
+		}
 		.form-Control{
             margin-top:10px;
             width:100%;
-            text-align:center;
         }
         .form-Control .student-name{
             width:50%;
@@ -28,6 +31,10 @@
 		#formScore{
 			margin-top:30px;
 			text-align:left;
+			width:100%;
+		}
+		#formScore .form-Control {
+			text-align: left;
 		}
 	</style>
 </head>
@@ -77,8 +84,34 @@
 						</div>
 						<div class="room-content" style="padding-bottom:90px;">
 							<form id="formScore" class="form-score">
-                                <div class="form-Control">
-                                    <div class="student-score">Score: <em style="color: red; font-size: larger;">{{score}}</em></div>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-inner-left">
+											<div class="c100 p25 big green">
+												<span>{{score}}</span>
+												<div class="slice">
+												  <div class="bar"></div>
+												  <div class="fill"></div>
+												</div>
+											  </div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-inner-right">
+											<div class="form-Control">
+												<div class="student-score">Student name: <em style="color: red; font-size: larger;">{{username}}</em></div>
+											</div>
+											<div class="form-Control">
+												<div class="student-score">Score: <em style="color: red; font-size: larger;">{{score}}</em></div>
+											</div>
+											<div class="form-Control">
+												<div class="student-num">Number of question: <em style="color: red; font-size: larger;">{{score}}</em></div>
+											</div>
+											<div class="form-Control">
+												<div class="student-correct-answer">Number of correct answer: <em style="color: red; font-size: larger;">{{correct_answer}}</em></div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</form>
 						</div>

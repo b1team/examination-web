@@ -38,22 +38,22 @@
 		<div id="create-room-wrapped">
 			<form id="formCreateRoom" class="form-create-room" name="formCreateRoom" action="/room" method="POST">
 				<span class="close">&times;</span>
-				<h2>Create Room Form</h2>
+				<h3>Create Room Form</h3>
 				<div class="form-Control">
 					<label for="username">Teacher</label>
 					<input type="text" id="username" name="username" placeholder="{{username}}" disabled />
 				</div>
 				<div class="form-Control">
 					<label for="classname">Classname</label>
-					<input type="text" id="classname" name="classname" placeholder="Enter classname" />
+					<input type="text" id="classname" name="classname" onkeyup="manage(this)" placeholder="Enter classname" />
 					<small>Error message</small>
 				</div>
 				<div class="form-Control">
 					<label for="subject">Subject</label>
-					<input type="text" id="subject" name="subject" placeholder="Enter subject" />
+					<input type="text" id="subject" name="subject" onkeyup="manage(this)" placeholder="Enter subject" />
 					<small>Error message</small>
 				</div>
-				<button type="submit">Create</button>
+				<input type="submit" id="btSubmit" disabled />
 			</form>
 		</div>
 	</div>

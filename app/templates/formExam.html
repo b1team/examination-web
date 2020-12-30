@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" oncontextmenu="return false">
 
 <head>
 	<meta charset="UTF-8">
@@ -55,26 +55,26 @@
 						<div class="room-content">
 							<form id="formExam" class="form-exam" name="formExam" action="/exam/{{room_id}}" method="POST" >
 								<div class="form-Control">
-									<label for="answer">Tổng số câu hỏi bạn đã tạo: </label>
+									<label for="answer">Total question created: </label>
 									<input type="text" value="{{all_ques}}" disabled/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Số câu hỏi mức độ dễ bạn đã tạo: </label>
+									<label for="answer">Total easy question: </label>
 									<input type="text" value="{{easy_ques}}" disabled/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Số câu hỏi mức độ trung bình bạn đã tạo: </label>
+									<label for="answer">Total medium question: </label>
 									<input type="text" value="{{medium_ques}}" disabled/>
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Số câu hỏi mức độ khó bạn đã tạo: </label>
+									<label for="answer">Total hard question: </label>
 									<input type="text" value="{{hard_ques}}" disabled/>
 									<small>Error message</small>
 								</div>
-								<h1>Tạo bài thi</h1>
+								<h1 style="font-size:18px;margin:20px;">Create exam base on storage question</h1>
 								<div class="form-Control">
 									<label for="answer">Tên bài thi: </label>
 									<input type="text" id="exam_name" name="exam_name" placeholder="Nhập Tên Bài Thi" />
@@ -130,6 +130,7 @@
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
 <script src='../static/javascript/validate_create_exam.js'></script>
+<script src="../static/javascript/disabled.js"></script>
 <!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
 <script type="text/javascript">
     $(function() {

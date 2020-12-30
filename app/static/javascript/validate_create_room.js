@@ -38,7 +38,25 @@ function checkSubject(input){
     );
   }
 }
-form.addEventListener('submit', function() {
+function manage(classname) {
+  var bt = document.getElementById('btSubmit');
+  if (classname.value != '') {
+      bt.disabled = false;
+  }
+  else {
+      bt.disabled = true;
+  }
+}  
+function manage(subject) {
+  var bt = document.getElementById('btSubmit');
+  if (subject.value != '') {
+      bt.disabled = false;
+  }
+  else {
+      bt.disabled = true;
+  }
+}  
+form_create_room.addEventListener('submit', function() {
   checkClassname(classname);
   checkSubject(subject);
 });
