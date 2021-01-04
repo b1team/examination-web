@@ -18,5 +18,9 @@
 
  ```python3 run.py```
 
+## DEMO
+
+https://thitracnghiemb1.herokuapp.com
+
 # 
 #### author: Tungnt24, AnhTuPhi
