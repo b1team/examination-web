@@ -112,31 +112,33 @@ def show_exam_question():
         if session["user"].get("classify") == "student":
             try:
                 param = request.args.to_dict()
+                username = session['user'].get('username')
                 room_id = ObjectId(param.get("rid"))
                 exam_id = ObjectId(param.get("eid"))
                 user_id = ObjectId(session["user"].get("user_id"))
-                student = Exam.objects(students__student_id=user_id, exam_id=exam_id).only("students__student_id", "students__total_point").first()
+                student = Exam.objects(students__student_id=user_id, exam_id=exam_id).only("students__student_id", "students__total_point", "questions").first()
                 if student is not None:
                     for i in student.students:
                         if i.student_id == user_id:
+                            numb_of_ques = len(student.questions)
+                            correct = int(i.total_point // (10 / numb_of_ques))
                             return render_template(
-                                "score.html", score=i.total_point
+                                "score.html", score=i.total_point, username=username, numb_of_ques=numb_of_ques, correct=correct
                             )
                 room = Room.objects(
                     **{"student__student_id": user_id, "room_id": room_id}
                 ).first()
                 questions = (
                     Exam.objects(room_id=room_id, exam_id=exam_id)
-                    .only("questions")
+                    .only("questions", "duration")
                     .first()
                 )
-
                 student = StudentAnswer(student_id=user_id, total_point=0)
                 Exam.objects(room_id=room_id, exam_id=exam_id).update_one(
                     push__students=student
                 )
                 return render_template(
-                    "exam.html", questions=questions, room=room
+                    "exam.html", questions=questions, room=room, exam_id=exam_id, rest=questions.duration
                 )
             except Exception:
                 return redirect(url_for("user.error"))
@@ -145,26 +147,28 @@ def show_exam_question():
 
 @user.route("/result", methods=["POST"])
 def check_answer():
-    questio = request.form.to_dict()
+    ques_info = request.form.to_dict()
     user_id = ObjectId(session["user"].get("user_id"))
 
     result = []
     answers = []
-    for question, answer in questio.items():
+    param = request.args.to_dict()
+    for question, answer in ques_info.items():
         q = Storage.objects(Id=question).first()
         answers.append(Result(question_id=question, answer_id=answer))
         if q:
             if str(q.correct_answer) == answer:
                 result.append(answer)
+    username = session['user'].get('username')
     exam = Exam.objects(students__student_id=user_id).only("questions").first()
-    score = (10 / len(exam.questions)) * len(result)
-    Exam.objects.filter(students__student_id=user_id).update(
+    score = "{:.2f}".format((10 / len(exam.questions)) * len(result))
+    Exam.objects.filter(students__student_id=user_id, exam_id=ObjectId(param.get("eid"))).update(
         **{
             "push__students__$__answers": answers,
             "set__students__$__total_point": score,
         }
     )
-    return render_template("score.html", score=score)
+    return render_template("score.html", score=score, username=username, numb_of_ques=len(exam.questions), correct=len(result))
 
 
 @user.route("/result", methods=["GET"])

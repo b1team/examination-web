@@ -73,12 +73,35 @@
 							<div class="room-teachername">teacher: {{room.teacher.teacher_name}}</div>
 						</div>
 						<div class="room-content" style="padding-bottom:90px;">
-							<div style="font-size:20px;color:red;float:right;">Time left: <span id="timer" style="font-size:20px;color:red;">10:00</span></div>
-							<form id="formAnswerQuestion" class="form-answer-question" action="/result" method="POST">
+							<span class="tim" id="tim">{{ rest }} minutes</span>
+							<progress max="{{ rest }}" value="{{ rest }}" class="progress progress--rest"
+								id="progressBar"></progress>
+
+							<script type="application/javascript">
+								const timerElement = document.getElementById("tim");
+								const progressBar = document.getElementById("progressBar")
+
+								var timerCounter = progressBar.max;
+
+								const interval = setInterval(() => {
+									if (timerCounter <= 1) {
+										window.location.href = "/student-room?rid={{room.room_id}}";
+										clearInterval(interval);
+									}
+
+									timerCounter = timerCounter - 1;
+
+									timerElement.innerText = timerCounter + " minutes";
+									progressBar.value = timerCounter;
+								}, 60000);
+							</script>
+							<form id="formAnswerQuestion" class="form-answer-question" action="/result?eid={{exam_id}}"
+								method="POST">
 								{% for question in questions.questions | shuffle %}
 								<div class="form-Control">
 									<p>Question: <em
-											style="color: red; border: 1px bold;font-size:20px;">{{question.question_name}}</em></p>
+											style="color: red; border: 1px bold;font-size:20px;">{{question.question_name}}</em>
+									</p>
 								</div>
 								{% for answer in question.answer | shuffle %}
 								<div class="form-Control">
@@ -98,6 +121,5 @@
 			</div>
 	</section>
 </body>
-<script src='../static/javascript/countdown.js'></script>
 
 </html>
