@@ -33,4 +33,3 @@ class Exam(db.Document):
         db.EmbeddedDocumentField(StudentAnswer), required=False
     )
     create_at = DateTimeField()
-

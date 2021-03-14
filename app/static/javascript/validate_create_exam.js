@@ -51,6 +51,33 @@ function checkAnswerKey(input) {
     );
   }
 }
+function manage(answer) {
+  var bt = document.getElementById('btSubmit');
+  if (subject.value != '') {
+      bt.disabled = false;
+  }
+  else {
+      bt.disabled = true;
+  }
+}
+function manage(answer_key) {
+  var bt = document.getElementById('btSubmit');
+  if (subject.value != '') {
+      bt.disabled = false;
+  }
+  else {
+      bt.disabled = true;
+  }
+} 
+function manage(editor) {
+  var bt = document.getElementById('btSubmit');
+  if (subject.value != '') {
+      bt.disabled = false;
+  }
+  else {
+      bt.disabled = true;
+  }
+} 
 // Event listeners
 form_create_room.addEventListener('submit', function () {
   checkEditor(editor);

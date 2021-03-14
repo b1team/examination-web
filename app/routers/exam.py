@@ -65,7 +65,13 @@ def create_exam(room_id: ObjectId):
     try:
         room = Room.objects(room_id=room_id).first()
         subject_id = room.subject.subject_id
-
+        if (
+            int(exam_info.get("num_easy")) == 0
+            or int(exam_info.get("num_hard")) == 0
+            or int(exam_info.get("num_hard")) == 0
+        ):
+            flash("Tạo bài thất bại", "error")
+            return redirect(request.referrer)
         exam_name = exam_info.get("exam_name")
         number_of_ques = exam_info.get("num")
         easy_ques = random_ques_level(1, exam_info.get("num_easy"), subject_id)
@@ -73,7 +79,6 @@ def create_exam(room_id: ObjectId):
             2, exam_info.get("num_med"), subject_id
         )
         hard_ques = random_ques_level(3, exam_info.get("num_hard"), subject_id)
-
         user_id = ObjectId(session["user"].get("user_id"))
         storage = list(itertools.chain(easy_ques, medium_ques, hard_ques))[
             : int(number_of_ques)
@@ -112,18 +117,30 @@ def show_exam_question():
         if session["user"].get("classify") == "student":
             try:
                 param = request.args.to_dict()
-                username = session['user'].get('username')
+                username = session["user"].get("username")
                 room_id = ObjectId(param.get("rid"))
                 exam_id = ObjectId(param.get("eid"))
                 user_id = ObjectId(session["user"].get("user_id"))
-                student = Exam.objects(students__student_id=user_id, exam_id=exam_id).only("students__student_id", "students__total_point", "questions").first()
+                student = (
+                    Exam.objects(students__student_id=user_id, exam_id=exam_id)
+                    .only(
+                        "students__student_id",
+                        "students__total_point",
+                        "questions",
+                    )
+                    .first()
+                )
                 if student is not None:
                     for i in student.students:
                         if i.student_id == user_id:
                             numb_of_ques = len(student.questions)
                             correct = int(i.total_point // (10 / numb_of_ques))
                             return render_template(
-                                "score.html", score=i.total_point, username=username, numb_of_ques=numb_of_ques, correct=correct
+                                "score.html",
+                                score=i.total_point,
+                                username=username,
+                                numb_of_ques=numb_of_ques,
+                                correct=correct,
                             )
                 room = Room.objects(
                     **{"student__student_id": user_id, "room_id": room_id}
@@ -138,7 +155,11 @@ def show_exam_question():
                     push__students=student
                 )
                 return render_template(
-                    "exam.html", questions=questions, room=room, exam_id=exam_id, rest=questions.duration
+                    "exam.html",
+                    questions=questions,
+                    room=room,
+                    exam_id=exam_id,
+                    rest=questions.duration,
                 )
             except Exception:
                 return redirect(url_for("user.error"))
@@ -159,16 +180,24 @@ def check_answer():
         if q:
             if str(q.correct_answer) == answer:
                 result.append(answer)
-    username = session['user'].get('username')
+    username = session["user"].get("username")
     exam = Exam.objects(students__student_id=user_id).only("questions").first()
     score = "{:.2f}".format((10 / len(exam.questions)) * len(result))
-    Exam.objects.filter(students__student_id=user_id, exam_id=ObjectId(param.get("eid"))).update(
+    Exam.objects.filter(
+        students__student_id=user_id, exam_id=ObjectId(param.get("eid"))
+    ).update(
         **{
             "push__students__$__answers": answers,
             "set__students__$__total_point": score,
         }
     )
-    return render_template("score.html", score=score, username=username, numb_of_ques=len(exam.questions), correct=len(result))
+    return render_template(
+        "score.html",
+        score=score,
+        username=username,
+        numb_of_ques=len(exam.questions),
+        correct=len(result),
+    )
 
 
 @user.route("/result", methods=["GET"])
