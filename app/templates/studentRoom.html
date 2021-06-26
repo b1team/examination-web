@@ -12,7 +12,11 @@
 	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
 
 	<title>Classrooms</title>
-
+<style>
+	body{
+		background:#fafafa;
+	}
+</style>
 </head>
 
 <body>
@@ -57,7 +61,7 @@
 				</div>
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
-						<div class="room-title">
+						<div class="room-title" style="background-image: url('https://gstatic.com/classroom/themes/img_learnlanguage.jpg');">
 							<div class="room-classname">Classname : {{room.room_name}}</div>
 							<div class="room-subject">Subject : {{room.subject.subject_name.title()}}</div>
 							<div class="room-teachername">Teacher : {{room.teacher.teacher_name}}</div>
@@ -65,46 +69,93 @@
 						<div class="room-content">
 							<div class="getAllRoom">
 								<div class="row">
-									{% for exam in exams %}
+									<!-- {% for exam in exams %}
 									<div class="col-lg-3">
 										<a href="/exam?rid={{room.room_id}}&eid={{exam.exam_id}}">
 											<div class="room-components">
 												<div class="room-title" style="background-color: darkcyan;">
-													<div class="room-classname" style="font-size: medium;">{{exam.exam_name.title()}}</div>
-													<div class="room-subject" style="font-size: small; text-align: left;"> Thời gian làm bài: {{exam.duration}} phút</div>
+													<div class="room-classname" style="font-size: medium;">
+														{{exam.exam_name.title()}}</div>
+													<div class="room-subject"
+														style="font-size: small; text-align: left;"> Thời gian làm bài:
+														{{exam.duration}} phút</div>
 												</div>
 											</div>
 										</a>
 									</div>
-									{% endfor %}
+									{% endfor %} -->
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 
 				</div>
+			</div>
+	</section>
+	<section id="testStudent-wrapped" style="margin:20px 0px;padding:10px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+				</div>
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<div class="room-content-student">
+						{% for exam in exams %}
+						<div class="getAllRoomStudent" style=" padding:30px;margin:15px 0px;
+						border:1px solid #f0f0f0;
+						border-radius: 20px;
+						display: block;
+						width: 100%;
+						background: #fff;
+						box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);">
+							<div class="row">
+								<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+									<div class="room-components">
+										<div class="room-title" style="color: #333;">
+											<div class="room-classname" style="font-size: medium;">
+												{{exam.exam_name.title()}}</div>
+											<div class="room-subject"
+												style="font-size: small; text-align: left;"> Thời gian làm bài:
+												{{exam.duration}} phút</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+									<div class="button" style=" padding:15px 20px; 
+									background-color: #3367d5;
+									width:100%;
+									text-align: center;border-radius: 20px;">
+										<a href="/exam?rid={{room.room_id}}&eid={{exam.exam_id}}" style="padding:15px 45px;
+											width:100%;
+											color:#f0f0f0;">Làm bài</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
 
 				</div>
 			</div>
+		</div>
 	</section>
-
 </body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="../static/javascript/editormd.min.js"></script>
 <script src='../static/javascript/validate_create_exam.js'></script>
 <!--<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>-->
 <script type="text/javascript">
-    $(function() {
-        var editor = editormd("test-editor", {
-            width: "80%",
-            height: "250px",
-            path: "../static/lib/"
-        });
-    });
+	$(function () {
+		var editor = editormd("test-editor", {
+			width: "80%",
+			height: "250px",
+			path: "../static/lib/"
+		});
+	});
 </script>
+
 </html>

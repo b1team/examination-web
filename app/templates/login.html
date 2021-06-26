@@ -9,18 +9,18 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div id="login-wrapped" >
 						<form id="form-login" class="form-login" action="/login" method="POST">
-						  <h2>Login Form</h2>
+						  <h2>Đăng nhập</h2>
 						  <div class="form-Control">
-							<label for="username">Username</label>
-							<input type="text" id="username" name="username" onchange="return trim(this)" placeholder="Enter username" />
+							<label for="username">Tên đăng nhập</label>
+							<input type="text" id="username" name="username" onchange="return trim(this)" placeholder="" />
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
-							<label for="password">Password</label>
-							<input name="password" type="password" id="password" placeholder="Enter password" />
+							<label for="password">Mật khẩu</label>
+							<input name="password" type="password" id="password" placeholder="" />
 							<small>Error message</small>
 						  </div>
-						  <button type="submit">Submit</button>
+						  <button type="submit">ĐĂNG NHẬP</button>
 						</form>
 					  </div>
 					    {% with messages = get_flashed_messages() %}
@@ -30,7 +30,7 @@
 								<script>
 									var message = "{{ message | safe }}";
 									//alert(message);
-									swal("Error", "You enter wrong password!", "error");
+									swal("Error", "Tài khoản hoặc mật khẩu không đúng!", "error");
 									</script>
 								{% endfor %}
 							{% endif %}

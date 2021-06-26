@@ -1,3 +1,4 @@
+from flask.helpers import flash
 from app.models.exam import Exam
 from app.models.subject import Subject
 from app.routers.user import (
@@ -41,9 +42,13 @@ def random_code():
 @user.route("/room", methods=["POST"])
 def create_room():
     room_info = request.form.to_dict()
+    subject = room_info.get("subject").strip().lower()
+    room_name = room_info.get("classname")
+    if not subject or not room_name:
+        flash("Vui lòng điền đầy đủ thông tin", "warning")
     room_code = random_code()
     subject = Subject(
-        subject_name=room_info.get("subject").strip().lower(),
+        subject_name=subject,
         teacher_id=ObjectId(session["user"].get("user_id")),
     )
     subject.save()
@@ -55,7 +60,7 @@ def create_room():
         subject_id=subject.id, subject_name=subject.subject_name
     )
     new_room = Room(
-        room_name=room_info.get("classname"),
+        room_name=room_name,
         subject=sj,
         teacher=teacher,
         room_code=room_code,

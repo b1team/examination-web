@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="../static/css/editormd.css" />
 	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
 	<title>Classrooms</title>
+	<style>
+		body{
+			background:#fafafa;
+		}
+	</style>
 </head>
 
 <body>
@@ -55,9 +60,9 @@
 					<div class="room-component-wrapped">
 						<div class="room-content">
 							<form id="formQuestion" class="form-create-question" name="formQuestion" action="/question/{{room.room_id}}" method="POST" >
-								<h2>Form Question</h2>
+								<h2>Câu Hỏi</h2>
 								<div class="form-Control">
-									<label for="question">Question</label>
+									<label for="question"></label>
 									<div id="test-editor">
 										<textarea style="display:none;" id="question" name="question"></textarea>
 									</div>
@@ -88,14 +93,14 @@
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="level">Choose a level question:</label>
+									<label for="level">Chọn độ khó của câu hỏi:</label>
 									<select name="level" id="level">
-										<option value="1">Easy</option>
-										<option value="2">Medium</option>
-										<option value="3">Hard</option>
+										<option value="1">Dễ</option>
+										<option value="2">Trung bình</option>
+										<option value="3">Khó</option>
 									</select>
 								</div>
-								<button type="submit">Create</button>
+								<button type="submit">TẠO</button>
 							</form>
 						</div>
 					</div>

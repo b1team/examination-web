@@ -21,16 +21,22 @@ def register_form():
 @auth.route("/register", methods=["POST"])
 def register():
     user_info = request.form.to_dict()
-    existing_user = User.objects(email=user_info.get("email")).first()
-
+    user = user_info.get("username", None)
+    email=  user_info.get("email", None)
+    gender = user_info.get("sex", None)
+    classify = user_info.get("classify", None)
+    if not user_info or not user or not email or not gender or not classify:
+        flash("Vui lòng điền đầy đủ thông tin", "error")
+        return redirect(request.referrer)
+    existing_user = User.objects(email=email, username=user).first()
     if existing_user is None:
         password = generate_password_hash(user_info.get("password"))
         user = User(
             username=user_info.get("username"),
             password=password,
-            email=user_info.get("email"),
-            gender=user_info.get("sex"),
-            classify=user_info.get("classify"),
+            email=email,
+            gender=gender,
+            classify=classify,
         )
         user.save()
         return redirect(url_for("auth.login"))

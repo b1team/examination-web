@@ -4,11 +4,11 @@
     padding:0px;
 }
 header {
-    background:#227bb1;
+    background:#3367d5;
     height:90px;
 }
 .dropbtn {
-  background-color: #227bb1;
+  background-color: #3367d5;
   color: white;
   padding: 15px 25px;
   border: none;
@@ -22,7 +22,7 @@ header {
 .dropdown {
   position: relative;
   display: inline-block;
-  float:right;
+  float: right;
   margin-top:25px;
   text-decoration:none;
   color:white;
@@ -34,7 +34,7 @@ a{text-decoration:none;color:white;}
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #227bb1;
+  background-color: #3367d5;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -67,7 +67,7 @@ a{text-decoration:none;color:white;}
     display:block;
     border:none;
     border-radius:20px;
-    background: #227bb1;
+    background: #3367d5;
 }
 .room-component-wrapped  .room-title{
     padding:30px 50px;
@@ -94,19 +94,27 @@ a{text-decoration:none;color:white;}
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	padding:20px 0px;
-	color:#227bb1;
+	color:#3367d5;
     padding:20px 50px;
 }
 #room-wrapped .room-content{
     text-align:center;
 }
-#room-wrapped .create-room{
-    margin-top:30px;
+#test-wrapped .create-room{
+    margin:10px 0px;
 }
-#room-wrapped .create-room a{
-    background:#227bb1;
+#test-wrapped .create-room a{
+    background:#3367d5;
     color:#fff;
     padding:10px 25px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+}
+#test-wrapped .create-rooma a{
+    background:#3367d5;
+    color:#fff;
+    padding:10px 32px;
     border:none;
     outline:none;
     border-radius:10px;
@@ -127,7 +135,7 @@ a{text-decoration:none;color:white;}
 #room-wrapped .room-content button{
   margin-top:20px;
   padding:10px 25px;
-  background:#227bb1;
+  background:#3367d5;
   color:#fff;
   border:none;
   outline:none;
@@ -170,4 +178,29 @@ a{text-decoration:none;color:white;}
 #formRank .form-Control .student-score{
     width:49%;
     display:inline-block;
+}
+
+#test-wrapped{
+    margin:20px 0px;
+    padding:10px;
+}
+#test-wrapped .room-content-test .getAllRoomTest{
+    padding:30px;
+    border:1px solid #f0f0f0;
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}
+#test-wrapped .room-content-test .getAllRoomTest .button{
+    padding:15px 20px; 
+    background-color: #3367d5;
+    width:100%;
+    text-align: center;
+}
+#test-wrapped .room-content-test .getAllRoomTest .button a{
+    padding:15px 30px;
+    width:100%;
+    color:#f0f0f0;
 }
