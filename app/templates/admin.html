@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <!-- <link rel="stylesheet" href="../static/css/grid.css"> -->
+    <link rel="stylesheet" href="../static/css/room.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/model.css">
+    <link rel="stylesheet" href="../static/css/popupBtn.css">
+    <link rel="stylesheet" href="../static/css/table.css">
+    <link rel="stylesheet" href="../static/css/grid.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Admin</title>
+    <style>
+        body {
+            background: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-desktop hidden-xs hidden-sm">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="logo-wrapper">
+                            <a href="/" class="cd-logo"><img src="../static/images/logo1.png"
+                                    style="height:100px; width:120px;display:block;" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="#0">
+                                    <img src="../static/images/cd-avatar.svg" alt="avatar"
+                                        style="height:24px;width:24px;border-radius:50%;">
+                                    <span>Tài khoản</span>
+                                </a>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#0">Tài khoản của tôi</a>
+                                <a href="#0">Thay đổi thông tin</a>
+                                <a href="/logout">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-mobile hidden-lg hidden-md">
+                <div class="row"></div>
+            </div>
+        </div>
+    </header>
+    <section id="admin-wrapped">
+        <div class="welcom" style="text-align:center;font-size:22px;margin-top:50px;">Welcom ADMIN</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <style>
+                        .btn-createExam {
+                            background: #fff;
+                            margin-top: 20px;
+                            border: 1px solid #f0f0f0;
+                            border-radius: 5px;
+                            box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+                        }
+
+                        ul li {
+                            padding: 10px;
+                            list-style: none;
+                            border: 1px solid #fafafa;
+                        }
+
+                        ul li a {
+                            font-size: 16px;
+                            text-decoration: none;
+                            color: #333;
+                            padding: 5px 20px;
+                        }
+                    </style>
+                    <div class="btn-createExam">
+                        <ul>
+                            <li><a href="#"><i class="fas fa-user"></i> Quản lý người
+                                    dùng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="admin-form-wrapped">
+                        <style>
+                            .admin-form-wrapped {
+                                background: #fff;
+                                margin-top: 20px;
+                                border: 1px solid #f0f0f0;
+                                border-radius: 5px;
+                                box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+                            }
+
+                            .table-wrapped {
+                                padding: 20px;
+                            }
+
+                            .searchBar {
+                                margin-top: 20px;
+                                padding: 10px 20px;
+                            }
+                        </style>
+                        <div class="searchBar">
+                            <input type="text" name="q" placeholder="Search rooms" style="height:30px;width:250px;">
+                            <button type="submit"
+                                style="background:#3367d5;border:none;padding:5px 30px;color:#fff;border-radius: 3px;">Search</button>
+                        </div>
+                        <div class="table-wrapped">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Giảng viên</th>
+                                        <th scope="col">Số phòng tạo</th>
+                                        <th scope="col">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>2</td>
+                                        <td>
+                                            <button href="#" id="myBtnDetail"
+                                                style="background:#3367d5;border:none;padding:5px 20px;color:#fff;border-radius: 3px;">Chi
+                                                tiết</button>
+                                            <button href="#" id="myBtnDelete"
+                                                style="background:red;border:none;padding:5px 20px;color:#fff;border-radius: 3px;">Xóa</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- The Modal Detail-->
+                        <div id="myModalDetail" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div id="create-room-wrapped">
+                                    <form id="formDetailRoom" class="form-detail-room" name="formDetailRoom"
+                                        action="/" method="GET">
+                                        <span class="close">&times;</span>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Tên</th>
+                                                    <th scope="col">Mã SV</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mark</td>
+                                                    <td>2</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The Modal Delete-->
+                        <div id="myModalDelete" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div id="create-room-wrapped">
+                                    <form id="formDeleteRoom" class="form-delete-room" name="formDeleteRoom"
+                                        action="/" method="POST">
+                                        <span class="closeBtn">&times;</span>
+                                        <h3>Bạn có chắc muốn xóa?</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Tên phòng</th>
+                                                    <th scope="col">Mã phòng</th>
+                                                    <th scope="col">Hành động</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Test1</td>
+                                                    <td>ABC</td>
+                                                    <td><button href="#"
+                                                        style="background:red;border:none;padding:5px 20px;color:#fff;border-radius: 3px;">Xóa</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- <input type="submit" id="btSubmit"/> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src='../static/javascript/modelBtnDelete.js'></script>
+    <script src='../static/javascript/modelBtnDetail.js'></script>
+</body>
+</html>

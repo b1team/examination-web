@@ -4,7 +4,8 @@
 <ul class="cd-side__list js-cd-side__list">
 	<li class="cd-side__label"><span>Hành động</span></li>
 	<li class="cd-side__btn">
-		<button id="myBtn">Tạo lớp</button></li>
+		<button id="myBtn">Tạo lớp</button>
+	</li>
 </ul>
 {% endblock %}
 {% block teacher %}
@@ -38,25 +39,37 @@
 		<div id="create-room-wrapped">
 			<form id="formCreateRoom" class="form-create-room" name="formCreateRoom" action="/room" method="POST">
 				<span class="close">&times;</span>
-				<h3>Create Room Form</h3>
+				<h3>Tạo phòng</h3>
 				<div class="form-Control">
-					<label for="username">Teacher</label>
+					<label for="username">Giảng viên</label>
 					<input type="text" id="username" name="username" placeholder="{{username}}" disabled />
 				</div>
 				<div class="form-Control">
-					<label for="classname">Classname</label>
-					<input type="text" id="classname" name="classname" onkeyup="manage(this)" placeholder="Enter classname" />
+					<label for="classname">Tên lớp</label>
+					<input type="text" id="classname" name="classname" onkeyup="manage(this)"
+						placeholder="Nhập tên lớp" />
 					<small>Error message</small>
 				</div>
 				<div class="form-Control">
-					<label for="subject">Subject</label>
-					<input type="text" id="subject" name="subject" onkeyup="manage(this)" placeholder="Enter subject" />
+					<label for="subject">Môn học</label>
+					<input type="text" id="subject" name="subject" onkeyup="manage(this)"
+						placeholder="Nhập tên môn học" />
 					<small>Error message</small>
 				</div>
-				<input type="submit" id="btSubmit" disabled />
+				<input type="submit" id="btSubmit" enable />
 			</form>
 		</div>
 	</div>
-
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category, message in messages %}
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		var message = "{{ message | safe }}";
+		swal("{{category}}", "{{message}}", "{{category}}");
+	</script>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
 </div>
 {% endblock %}

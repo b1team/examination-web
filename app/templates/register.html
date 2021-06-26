@@ -10,23 +10,23 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<div id="register-wrapped" >
 						<form id="formRegister" class="form-register" action="/register" method="POST" >
-						  <h2>Register Form</h2>
+						  <h2>Đăng ký</h2>
 						  <div class="form-Control">
-							<label for="username">Username</label>
-							<input type="text" id="username" name="username" onchange="return trim(this)" placeholder="Enter username" />
+							<label for="username">Tên đăng nhập</label>
+							<input type="text" id="username" name="username" onchange="return trim(this)" placeholder="" />
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
-							<label for="password">Password</label>
-							<input type="password" id="password" name="password" placeholder="Enter password" />
+							<label for="password">Mật khẩu</label>
+							<input type="password" id="password" name="password" placeholder="" />
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
-							<label for="password2">Confirm Password</label>
+							<label for="password2">Nhập lại mật khẩu</label>
 							<input
 							  type="password"
 							  id="password2"
-							  placeholder="Enter password again"/>
+							  placeholder=""/>
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
@@ -35,7 +35,7 @@
 							  name="email"
 							  type="text"
 							  id="email"
-							  placeholder="Enter email"/>
+							  placeholder=""/>
 							<small>Error message</small>
 						  </div>
 						  <div class="form-Control">
@@ -50,19 +50,20 @@
 							<input type="radio" id="classify" name="classify" value="teacher" style="height: 20px;width:20px;margin-left:20px;display:inline-block;"> Giảng viên
 							<small>Error message</small>
 						  </div>
-						  <button type="submit">Submit</button>
+						  <button type="submit">ĐĂNG KÝ</button>
 						</form>
 					  </div>
-					  {% with messages = get_flashed_messages() %}
-					  {% if messages %}
-						  {% for message in messages %}
-						  <script>
-							  var message = "{{ message | safe }}";
-							  alert(message)
-							  </script>
-						  {% endfor %}
-					  {% endif %}
-				  {% endwith %}
+					  {% with messages = get_flashed_messages(with_categories=true) %}
+							{% if messages %}
+								{% for category, message in messages %}
+								<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+								<script>
+									var message = "{{ message | safe }}";
+									swal("{{category}}", "{{message}}", "{{category}}");
+									</script>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
             </div>

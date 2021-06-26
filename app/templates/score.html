@@ -9,32 +9,45 @@
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<link rel="stylesheet" href="../static/css/circle.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<title>Classrooms</title>
 	<style>
 		#room-wrapped {
 			margin-bottom: 40px;
 		}
-		.form-Control{
-            margin-top:10px;
-            width:100%;
-        }
-        .form-Control .student-name{
-            width:50%;
-            display:inline-block;
-            font-size:20px;
-        }
-        .form-Control .student-score{
-            width:49%;
-            display:inline-block;
-            font-size:20px;
-        }
-		#formScore{
-			margin-top:30px;
-			text-align:left;
-			width:100%;
+
+		.form-Control {
+			margin-top: 10px;
+			width: 100%;
 		}
+
+		.form-Control .student-name {
+			width: 50%;
+			display: inline-block;
+			font-size: 20px;
+		}
+
+		.form-Control .student-score {
+			width: 49%;
+			display: inline-block;
+			font-size: 20px;
+		}
+
+		#formScore {
+			margin-top: 30px;
+			text-align: left;
+			width: 100%;
+		}
+
 		#formScore .form-Control {
 			text-align: left;
+		}
+		.form-Control .student-num, .form-Control .student-correct-answer{
+			font-size:20px;
+		}
+		body{
+			background:#fafafa;
 		}
 	</style>
 </head>
@@ -90,25 +103,30 @@
 											<div class="c100 p25 big green">
 												<span>{{score}}</span>
 												<div class="slice">
-												  <div class="bar"></div>
-												  <div class="fill"></div>
+													<div class="bar"></div>
+													<div class="fill"></div>
 												</div>
-											  </div>
+											</div>
 										</div>
 									</div>
 									<div class="col-lg-6">
-										<div class="form-inner-right">
+										<div class="form-inner-right">		
 											<div class="form-Control">
-												<div class="student-score">Student name: <em style="color: red; font-size: larger;">{{username}}</em></div>
+												<div class="student-score">Tên sinh viên: <em
+														style="color: red; font-size: 20px;">{{username}}</em></div>
 											</div>
 											<div class="form-Control">
-												<div class="student-score">Score: <em style="color: red; font-size: larger;">{{score}}</em></div>
+												<div class="student-score">Điểm: <em
+														style="color: red; font-size: 20px;">{{score}}</em></div>
 											</div>
 											<div class="form-Control">
-												<div class="student-num">Number of question: <em style="color: red; font-size: larger;">{{numb_of_ques}}</em></div>
+												<div class="student-num">Số câu hỏi: <em
+														style="color: red; font-size: 20px;">{{numb_of_ques}}</em>
+												</div>
 											</div>
 											<div class="form-Control">
-												<div class="student-correct-answer">Number of correct answer: <em style="color: red; font-size: larger;">{{correct}}</em></div>
+												<div class="student-correct-answer">Số câu hỏi trả lời đúng: <em
+														style="color: red; font-size: 20px;">{{correct}}</em></div>
 											</div>
 										</div>
 									</div>
@@ -117,7 +135,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>			
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 			</div>
 	</section>
 </body>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -10,6 +10,11 @@
 	<link rel="stylesheet" href="../static/css/popup.css">
 	<link rel="stylesheet" href="../static/css/validate_create_room.css" />
 	<title>Classrooms</title>
+	<style>
+		body{
+			background: #fafafa;
+		}
+	</style>
 </head>
 
 <body>
@@ -54,26 +59,7 @@
 					<div class="room-component-wrapped">
 						<div class="room-content">
 							<form id="formExam" class="form-exam" name="formExam" action="/exam/{{room_id}}" method="POST" >
-								<div class="form-Control">
-									<label for="answer">Total question created: </label>
-									<input type="text" value="{{all_ques}}" disabled/>
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Total easy question: </label>
-									<input type="text" value="{{easy_ques}}" disabled/>
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Total medium question: </label>
-									<input type="text" value="{{medium_ques}}" disabled/>
-									<small>Error message</small>
-								</div>
-								<div class="form-Control">
-									<label for="answer">Total hard question: </label>
-									<input type="text" value="{{hard_ques}}" disabled/>
-									<small>Error message</small>
-								</div>
+								
 								<h1 style="font-size:18px;margin:20px;">Create exam base on storage question</h1>
 								<div class="form-Control">
 									<label for="answer">Tên bài thi: </label>
@@ -81,31 +67,51 @@
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Duration: </label>
+									<label for="answer">Thời gian làm bài: </label>
 									<input type="number" min="1" id="duration" name="duration" placeholder="Enter duration! (minutes)" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Number of question: </label>
+									<label for="answer">Số lượng câu hỏi: </label>
 									<input type="number" min="0" id="num" name="num" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Easy: </label>
+									<label for="answer">Số câu dễ: </label>
 									<input type="number" min="0" id="num" name="num_easy" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Medium: </label>
+									<label for="answer">Số câu trung bình: </label>
 									<input type="number" min="0" id="num" name="num_med" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
 								<div class="form-Control">
-									<label for="answer">Hard: </label>
+									<label for="answer">Số câu khó: </label>
 									<input type="number" min="0" id="num" name="num_hard" placeholder="Enter number of question!" />
 									<small>Error message</small>
 								</div>
-								<button type="submit">Create</button>
+								<div class="form-Control">
+									<label for="answer">Tổng số câu hỏi có trong kho: </label>
+									<input type="text" value="{{all_ques}}" disabled/>
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Tổng số câu hỏi dễ: </label>
+									<input type="text" value="{{easy_ques}}" disabled/>
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Tổng số câu hỏi trung bình: </label>
+									<input type="text" value="{{medium_ques}}" disabled/>
+									<small>Error message</small>
+								</div>
+								<div class="form-Control">
+									<label for="answer">Tổng số câu hỏi khó: </label>
+									<input type="text" value="{{hard_ques}}" disabled/>
+									<small>Error message</small>
+								</div>
+								<button type="submit">Tạo</button>
 							</form>
 						</div>
 						{% with messages = get_flashed_messages(with_categories=true) %}

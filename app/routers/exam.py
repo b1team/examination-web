@@ -106,7 +106,7 @@ def create_exam(room_id: ObjectId):
         exam.save()
         flash("Tạo bài thi thành công", "success")
         return redirect(request.referrer)
-    except Exception:
+    except Exception as e:
         flash("Tạo bài thất bại", "error")
         return redirect(request.referrer)
 
