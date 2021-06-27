@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en" >
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script>document.getElementsByTagName("html")[0].className += " js";</script>
+	
 	<link rel="stylesheet" href="../static/css/grid.css">
 	<link rel="stylesheet" href="../static/css/room.css">
 	<link rel="stylesheet" href="../static/css/popup.css">
@@ -71,33 +71,13 @@
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="room-component-wrapped">
 						<div class="room-title">
-							<div class="room-classname">classname: {{room.room_name}}</div>
-							<div class="room-subject">subject: {{room.subject.subject_name}}</div>
-							<div class="room-teachername">teacher: {{room.teacher.teacher_name}}</div>
+							<div class="room-classname">Tên lớp: {{room.room_name}}</div>
+							<div class="room-subject">Môn học: {{room.subject.subject_name}}</div>
+							<div class="room-teachername">Giảng viên: {{room.teacher.teacher_name}}</div>
 						</div>
 						<div class="room-content" style="padding-bottom:90px;">
-							<span class="tim" id="tim">{{ rest }} minutes</span>
-							<progress max="{{ rest }}" value="{{ rest }}" class="progress progress--rest"
-								id="progressBar"></progress>
-
-							<script type="application/javascript">
-								const timerElement = document.getElementById("tim");
-								const progressBar = document.getElementById("progressBar")
-
-								var timerCounter = progressBar.max;
-
-								const interval = setInterval(() => {
-									if (timerCounter <= 1) {
-										window.location.href = "/student-room?rid={{room.room_id}}";
-										clearInterval(interval);
-									}
-
-									timerCounter = timerCounter - 1;
-
-									timerElement.innerText = timerCounter + " minutes";
-									progressBar.value = timerCounter;
-								}, 60000);
-							</script>
+							
+							<span id="timers" style="color: red;"></span>
 							<form id="formAnswerQuestion" class="form-answer-question" action="/result?eid={{exam_id}}"
 								method="POST">
 								{% for question in questions.questions | shuffle %}
@@ -122,7 +102,13 @@
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 			</div>
+			<input id="time-left" type="text" style="display: block; color: white;" placeholder="" disabled
+value="{{time_left}}">
+<input id="dura" type="text" style="display: block; color: white;" placeholder="" disabled
+value="{{duration}}">
 	</section>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="../static/javascript/time/time.js"></script>
 </body>
 
 </html>

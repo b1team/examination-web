@@ -17,6 +17,7 @@ from bson import ObjectId
 from random import choices, shuffle, sample
 import itertools
 from datetime import datetime
+import datetime as dt
 
 
 @user.route("/create-exam/<room_id>", methods=["GET"])
@@ -94,14 +95,18 @@ def create_exam(room_id: ObjectId):
                     correct_answer=item.correct_answer,
                 )
             )
+        now = datetime.now()
+        duration = int(exam_info.get("duration"))
+        expire = now + dt.timedelta(minutes=duration)
         exam = Exam(
             room_id=room.room_id,
             teacher_id=user_id,
             exam_name=exam_name.strip().lower(),
             subject_id=room.subject.subject_id,
-            duration=int(exam_info.get("duration")),
+            duration=duration,
             questions=questions,
-            create_at=datetime.now(),
+            create_at=now,
+            expire_at=expire
         )
         exam.save()
         flash("Tạo bài thi thành công", "success")
@@ -110,6 +115,14 @@ def create_exam(room_id: ObjectId):
         flash("Tạo bài thất bại", "error")
         return redirect(request.referrer)
 
+def get_time():
+    return int(datetime.now().timestamp())
+
+def timeout(room_id, exam_id):
+    exam = Exam.objects(room_id=room_id, exam_id=exam_id).only("expire_at").first()
+    expire = exam.expire_at
+    time_left = int(expire.timestamp()) - get_time()
+    return int(time_left)
 
 @user.route("/exam", methods=["GET"])
 def show_exam_question():
@@ -130,6 +143,7 @@ def show_exam_question():
                     )
                     .first()
                 )
+                '''
                 if student is not None:
                     for i in student.students:
                         if i.student_id == user_id:
@@ -142,6 +156,7 @@ def show_exam_question():
                                 numb_of_ques=numb_of_ques,
                                 correct=correct,
                             )
+                '''
                 room = Room.objects(
                     **{"student__student_id": user_id, "room_id": room_id}
                 ).first()
@@ -154,14 +169,17 @@ def show_exam_question():
                 Exam.objects(room_id=room_id, exam_id=exam_id).update_one(
                     push__students=student
                 )
+                time_left = timeout(room_id, exam_id)
+                duration = questions.duration * 60
                 return render_template(
                     "exam.html",
                     questions=questions,
                     room=room,
                     exam_id=exam_id,
-                    rest=questions.duration,
+                    duration=duration,
+                    time_left = time_left
                 )
-            except Exception:
+            except Exception as e:
                 return redirect(url_for("user.error"))
     return redirect(url_for("auth.login"))
 
