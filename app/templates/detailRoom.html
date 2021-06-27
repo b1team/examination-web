@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <!-- <link rel="stylesheet" href="../static/css/grid.css"> -->
+    <link rel="stylesheet" href="../static/css/room.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/model.css">
+    <link rel="stylesheet" href="../static/css/popupBtn.css">
+    <link rel="stylesheet" href="../static/css/table.css">
+    <link rel="stylesheet" href="../static/css/grid.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>DetailRoom</title>
+    <style>
+        body {
+            background: #fafafa;
+        }
+        #formDetailRoom{
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-desktop hidden-xs hidden-sm">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="logo-wrapper">
+                            <a href="/" class="cd-logo"><img src="../static/images/logo1.png"
+                                    style="height:100px; width:120px;display:block;" alt="Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="#0">
+                                    <img src="../static/images/cd-avatar.svg" alt="avatar"
+                                        style="height:24px;width:24px;border-radius:50%;">
+                                    <span>Tài khoản</span>
+                                </a>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#0">Tài khoản của tôi</a>
+                                <a href="#0">Thay đổi thông tin</a>
+                                <a href="/logout">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-mobile hidden-lg hidden-md">
+                <div class="row"></div>
+            </div>
+        </div>
+    </header>
+    <section id="detail-wrapped">
+        <div class="welcomDetail" style="text-align:center;font-size:22px;margin-top:50px;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12">
+                    <form id="formDetailRoom" class="form-detail-room" name="formDetailRoom" action="/" method="">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Tên phòng</th>
+                                    <th scope="col">Mã Phòng</th>
+                                    <th scope="col">Số lượng sinh viên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for index, room_name, room_code, students in mapper_room %}
+                                <tr>
+                                    <th scope="row">{{index}}</th>
+                                    <td>{{room_name}}</td>
+                                    <td>{{room_code}}</td>
+                                    <td>{{students}}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
