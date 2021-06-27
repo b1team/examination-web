@@ -106,7 +106,8 @@ def create_exam(room_id: ObjectId):
             duration=duration,
             questions=questions,
             create_at=now,
-            expire_at=expire
+            expire_at=expire,
+            update_at=now
         )
         exam.save()
         flash("Tạo bài thi thành công", "success")
@@ -143,7 +144,17 @@ def show_exam_question():
                     )
                     .first()
                 )
-                '''
+                update = Exam.objects(room_id=room_id, exam_id=exam_id).only("update_at", "create_at").first()
+                if update.update_at == update.create_at:
+                    update_at = datetime.now()
+                    Exam.objects(room_id=room_id, exam_id=exam_id).update_one(
+                        update_at=update_at
+                    )
+                    exam = Exam.objects(room_id=room_id, exam_id=exam_id).only("duration").first()
+                    new_expire = update_at + dt.timedelta(minutes=exam.duration)
+                    Exam.objects(room_id=room_id, exam_id=exam_id).update_one(
+                        expire_at=new_expire
+                    )
                 if student is not None:
                     for i in student.students:
                         if i.student_id == user_id:
@@ -156,7 +167,7 @@ def show_exam_question():
                                 numb_of_ques=numb_of_ques,
                                 correct=correct,
                             )
-                '''
+                
                 room = Room.objects(
                     **{"student__student_id": user_id, "room_id": room_id}
                 ).first()
@@ -180,6 +191,7 @@ def show_exam_question():
                     time_left = time_left
                 )
             except Exception as e:
+                print(e)
                 return redirect(url_for("user.error"))
     return redirect(url_for("auth.login"))
 
