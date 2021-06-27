@@ -28,11 +28,11 @@ def register():
     if not user_info or not user or not email or not gender or not classify:
         flash("Vui lòng điền đầy đủ thông tin", "error")
         return redirect(request.referrer)
-    existing_user = User.objects(email=email, username=user).first()
+    existing_user = User.objects(email=email).first()
     if existing_user is None:
         password = generate_password_hash(user_info.get("password"))
         user = User(
-            username=user_info.get("username"),
+            username=user,
             password=password,
             email=email,
             gender=gender,
