@@ -9,7 +9,6 @@ def create_app():
     app = Flask(__name__)
 
     app.config.from_pyfile("settings.py")
-
     initialize_db(app)
     app.register_blueprint(home.bp)
     app.register_blueprint(login.auth)
